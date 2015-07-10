@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A9ECC6B9-3D26-4E7A-B755-8859F580E0BB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D860D009C9B1A42B356955A02EA9DD1D7966BD36</key>
+		<string>https://bitbucket.org/efreestone/astroblast-invasion.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AstroBlastInvasion/AstroBlastInvasion.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D860D009C9B1A42B356955A02EA9DD1D7966BD36</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/efreestone/astroblast-invasion.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D860D009C9B1A42B356955A02EA9DD1D7966BD36</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D860D009C9B1A42B356955A02EA9DD1D7966BD36</string>
+			<key>IDESourceControlWCCName</key>
+			<string>astroblast-invasion</string>
+		</dict>
+	</array>
+</dict>
+</plist>
