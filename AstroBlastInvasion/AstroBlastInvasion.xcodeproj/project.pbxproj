@@ -10,12 +10,88 @@
 		B89E47171B4F53810067075A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E47161B4F53810067075A /* main.m */; };
 		B89E471A1B4F53810067075A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E47191B4F53810067075A /* AppDelegate.m */; };
 		B89E471D1B4F53810067075A /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E471C1B4F53810067075A /* GameScene.m */; };
-		B89E471F1B4F53810067075A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B89E471E1B4F53810067075A /* GameScene.sks */; };
 		B89E47221B4F53810067075A /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E47211B4F53810067075A /* GameViewController.m */; };
 		B89E47251B4F53810067075A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B89E47231B4F53810067075A /* Main.storyboard */; };
 		B89E47271B4F53810067075A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B89E47261B4F53810067075A /* Images.xcassets */; };
 		B89E472A1B4F53810067075A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B89E47281B4F53810067075A /* LaunchScreen.xib */; };
 		B89E47361B4F53810067075A /* AstroBlastInvasionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E47351B4F53810067075A /* AstroBlastInvasionTests.m */; };
+		B89E47451B4F55C10067075A /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E47421B4F55C10067075A /* AboutScene.m */; };
+		B89E47461B4F55C10067075A /* AchievementsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E47441B4F55C10067075A /* AchievementsScene.m */; };
+		B89E47521B4F55E20067075A /* ConnectionManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E474A1B4F55E20067075A /* ConnectionManagement.m */; };
+		B89E47531B4F55E20067075A /* CustomPFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E474C1B4F55E20067075A /* CustomPFLoginViewController.m */; };
+		B89E47541B4F55E20067075A /* CustomPFSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E474E1B4F55E20067075A /* CustomPFSignUpViewController.m */; };
+		B89E47551B4F55E20067075A /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E47501B4F55E20067075A /* CustomTableViewCell.m */; };
+		B89E47561B4F55E20067075A /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B89E47511B4F55E20067075A /* CustomTableViewCell.xib */; };
+		B89E47591B4F55F20067075A /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E47581B4F55F20067075A /* GameOverScene.m */; };
+		B89E475D1B4F56080067075A /* HowToScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E475B1B4F56080067075A /* HowToScene.m */; };
+		B89E47611B4F561E0067075A /* LeaderboardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E47601B4F561E0067075A /* LeaderboardScene.m */; };
+		B89E47661B4F562B0067075A /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E47631B4F562B0067075A /* MainMenuScene.m */; };
+		B89E476D1B4F567F0067075A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E47691B4F567F0067075A /* Bolts.framework */; };
+		B89E476E1B4F567F0067075A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E476A1B4F567F0067075A /* Parse.framework */; };
+		B89E476F1B4F567F0067075A /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E476B1B4F567F0067075A /* ParseFacebookUtils.framework */; };
+		B89E47701B4F567F0067075A /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E476C1B4F567F0067075A /* ParseUI.framework */; };
+		B89E47731B4F575F0067075A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E47721B4F575F0067075A /* AudioToolbox.framework */; };
+		B89E47751B4F57660067075A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E47741B4F57660067075A /* CFNetwork.framework */; };
+		B89E47771B4F57720067075A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E47761B4F57720067075A /* CoreGraphics.framework */; };
+		B89E47791B4F57790067075A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E47781B4F57790067075A /* CoreLocation.framework */; };
+		B89E477B1B4F57810067075A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E477A1B4F57810067075A /* libz.dylib */; };
+		B89E477D1B4F57910067075A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E477C1B4F57910067075A /* MobileCoreServices.framework */; };
+		B89E477F1B4F57970067075A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E477E1B4F57970067075A /* QuartzCore.framework */; };
+		B89E47811B4F57A20067075A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E47801B4F57A20067075A /* Security.framework */; };
+		B89E47831B4F57A80067075A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E47821B4F57A80067075A /* StoreKit.framework */; };
+		B89E47851B4F57B80067075A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E47841B4F57B80067075A /* SystemConfiguration.framework */; };
+		B89E47871B4F57BE0067075A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E47861B4F57BE0067075A /* Accounts.framework */; };
+		B89E47891B4F57CA0067075A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E47881B4F57CA0067075A /* Social.framework */; };
+		B89E478C1B4F59120067075A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E478B1B4F59120067075A /* Reachability.m */; };
+		B89E47961B4F5A8D0067075A /* asteroid.caf in Resources */ = {isa = PBXBuildFile; fileRef = B89E478E1B4F5A8D0067075A /* asteroid.caf */; };
+		B89E47971B4F5A8D0067075A /* explosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = B89E478F1B4F5A8D0067075A /* explosion.caf */; };
+		B89E47981B4F5A8D0067075A /* laser.caf in Resources */ = {isa = PBXBuildFile; fileRef = B89E47901B4F5A8D0067075A /* laser.caf */; };
+		B89E47991B4F5A8D0067075A /* life.caf in Resources */ = {isa = PBXBuildFile; fileRef = B89E47911B4F5A8D0067075A /* life.caf */; };
+		B89E479A1B4F5A8D0067075A /* lose.caf in Resources */ = {isa = PBXBuildFile; fileRef = B89E47921B4F5A8D0067075A /* lose.caf */; };
+		B89E479B1B4F5A8D0067075A /* miss.caf in Resources */ = {isa = PBXBuildFile; fileRef = B89E47931B4F5A8D0067075A /* miss.caf */; };
+		B89E479C1B4F5A8D0067075A /* shield.caf in Resources */ = {isa = PBXBuildFile; fileRef = B89E47941B4F5A8D0067075A /* shield.caf */; };
+		B89E479D1B4F5A8D0067075A /* win.caf in Resources */ = {isa = PBXBuildFile; fileRef = B89E47951B4F5A8D0067075A /* win.caf */; };
+		B89E47A81B4F5AB80067075A /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E479F1B4F5AB80067075A /* Default-568h@2x~iphone.png */; };
+		B89E47A91B4F5AB80067075A /* Default@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47A01B4F5AB80067075A /* Default@2x~ipad.png */; };
+		B89E47AA1B4F5AB80067075A /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47A11B4F5AB80067075A /* Default@2x~iphone.png */; };
+		B89E47AB1B4F5AB80067075A /* Default~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47A21B4F5AB80067075A /* Default~ipad.png */; };
+		B89E47AC1B4F5AB80067075A /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47A31B4F5AB80067075A /* Default~iphone.png */; };
+		B89E47AD1B4F5AB80067075A /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47A41B4F5AB80067075A /* Icon-76.png */; };
+		B89E47AE1B4F5AB80067075A /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47A51B4F5AB80067075A /* Icon-76@2x.png */; };
+		B89E47AF1B4F5AB80067075A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47A61B4F5AB80067075A /* Icon.png */; };
+		B89E47B01B4F5AB80067075A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47A71B4F5AB80067075A /* Icon@2x.png */; };
+		B89E47D41B4F5B3A0067075A /* asteroid-life.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47B41B4F5B3A0067075A /* asteroid-life.png */; };
+		B89E47D51B4F5B3A0067075A /* asteroid-life~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47B51B4F5B3A0067075A /* asteroid-life~ipad.png */; };
+		B89E47D61B4F5B3A0067075A /* asteroid-X2.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47B61B4F5B3A0067075A /* asteroid-X2.png */; };
+		B89E47D71B4F5B3A0067075A /* asteroid-X2~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47B71B4F5B3A0067075A /* asteroid-X2~ipad.png */; };
+		B89E47D81B4F5B3A0067075A /* asteroid.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47B81B4F5B3A0067075A /* asteroid.png */; };
+		B89E47D91B4F5B3A0067075A /* explosion.atlas in Resources */ = {isa = PBXBuildFile; fileRef = B89E47B91B4F5B3A0067075A /* explosion.atlas */; };
+		B89E47DA1B4F5B3A0067075A /* fighter.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47BA1B4F5B3A0067075A /* fighter.png */; };
+		B89E47DB1B4F5B3A0067075A /* fighter~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47BB1B4F5B3A0067075A /* fighter~ipad.png */; };
+		B89E47DC1B4F5B3A0067075A /* how-to-1.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47BC1B4F5B3A0067075A /* how-to-1.png */; };
+		B89E47DD1B4F5B3A0067075A /* how-to-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47BD1B4F5B3A0067075A /* how-to-1@2x.png */; };
+		B89E47DE1B4F5B3A0067075A /* how-to-1@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47BE1B4F5B3A0067075A /* how-to-1@2x~ipad.png */; };
+		B89E47DF1B4F5B3A0067075A /* how-to-1~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47BF1B4F5B3A0067075A /* how-to-1~ipad.png */; };
+		B89E47E01B4F5B3A0067075A /* how-to-2.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47C01B4F5B3A0067075A /* how-to-2.png */; };
+		B89E47E11B4F5B3A0067075A /* how-to-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47C11B4F5B3A0067075A /* how-to-2@2x.png */; };
+		B89E47E21B4F5B3A0067075A /* how-to-2@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47C21B4F5B3A0067075A /* how-to-2@2x~ipad.png */; };
+		B89E47E31B4F5B3A0067075A /* how-to-2~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47C31B4F5B3A0067075A /* how-to-2~ipad.png */; };
+		B89E47E41B4F5B3A0067075A /* how-to-3.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47C41B4F5B3A0067075A /* how-to-3.png */; };
+		B89E47E51B4F5B3A0067075A /* how-to-3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47C51B4F5B3A0067075A /* how-to-3@2x.png */; };
+		B89E47E61B4F5B3A0067075A /* how-to-3@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47C61B4F5B3A0067075A /* how-to-3@2x~ipad.png */; };
+		B89E47E71B4F5B3A0067075A /* how-to-3~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47C71B4F5B3A0067075A /* how-to-3~ipad.png */; };
+		B89E47E81B4F5B3A0067075A /* laser-ball.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47C81B4F5B3A0067075A /* laser-ball.png */; };
+		B89E47E91B4F5B3A0067075A /* laser-ball~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47C91B4F5B3A0067075A /* laser-ball~ipad.png */; };
+		B89E47EA1B4F5B3A0067075A /* red-laser.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47CA1B4F5B3A0067075A /* red-laser.png */; };
+		B89E47EB1B4F5B3A0067075A /* shield.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47CB1B4F5B3A0067075A /* shield.png */; };
+		B89E47EC1B4F5B3A0067075A /* shield~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47CC1B4F5B3A0067075A /* shield~ipad.png */; };
+		B89E47ED1B4F5B3A0067075A /* space@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47CD1B4F5B3A0067075A /* space@2x~ipad.png */; };
+		B89E47EE1B4F5B3A0067075A /* space@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47CE1B4F5B3A0067075A /* space@2x~iphone.png */; };
+		B89E47EF1B4F5B3A0067075A /* space@3x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47CF1B4F5B3A0067075A /* space@3x~iphone.png */; };
+		B89E47F01B4F5B3A0067075A /* space~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47D01B4F5B3A0067075A /* space~ipad.png */; };
+		B89E47F11B4F5B3A0067075A /* space~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47D11B4F5B3A0067075A /* space~iphone.png */; };
+		B89E47F21B4F5B3A0067075A /* spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47D21B4F5B3A0067075A /* spaceship.png */; };
+		B89E47F31B4F5B3A0067075A /* spaceship~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47D31B4F5B3A0067075A /* spaceship~ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +112,6 @@
 		B89E47191B4F53810067075A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B89E471B1B4F53810067075A /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		B89E471C1B4F53810067075A /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		B89E471E1B4F53810067075A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		B89E47201B4F53810067075A /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		B89E47211B4F53810067075A /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		B89E47241B4F53810067075A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,6 +120,94 @@
 		B89E472F1B4F53810067075A /* AstroBlastInvasionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstroBlastInvasionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B89E47341B4F53810067075A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B89E47351B4F53810067075A /* AstroBlastInvasionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AstroBlastInvasionTests.m; sourceTree = "<group>"; };
+		B89E47411B4F55C10067075A /* AboutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutScene.h; sourceTree = "<group>"; };
+		B89E47421B4F55C10067075A /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
+		B89E47431B4F55C10067075A /* AchievementsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementsScene.h; sourceTree = "<group>"; };
+		B89E47441B4F55C10067075A /* AchievementsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementsScene.m; sourceTree = "<group>"; };
+		B89E47491B4F55E20067075A /* ConnectionManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManagement.h; sourceTree = "<group>"; };
+		B89E474A1B4F55E20067075A /* ConnectionManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManagement.m; sourceTree = "<group>"; };
+		B89E474B1B4F55E20067075A /* CustomPFLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPFLoginViewController.h; sourceTree = "<group>"; };
+		B89E474C1B4F55E20067075A /* CustomPFLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPFLoginViewController.m; sourceTree = "<group>"; };
+		B89E474D1B4F55E20067075A /* CustomPFSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPFSignUpViewController.h; sourceTree = "<group>"; };
+		B89E474E1B4F55E20067075A /* CustomPFSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPFSignUpViewController.m; sourceTree = "<group>"; };
+		B89E474F1B4F55E20067075A /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		B89E47501B4F55E20067075A /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		B89E47511B4F55E20067075A /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		B89E47571B4F55F20067075A /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
+		B89E47581B4F55F20067075A /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
+		B89E475A1B4F56080067075A /* HowToScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowToScene.h; sourceTree = "<group>"; };
+		B89E475B1B4F56080067075A /* HowToScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToScene.m; sourceTree = "<group>"; };
+		B89E475F1B4F561E0067075A /* LeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardScene.h; sourceTree = "<group>"; };
+		B89E47601B4F561E0067075A /* LeaderboardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardScene.m; sourceTree = "<group>"; };
+		B89E47621B4F562B0067075A /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
+		B89E47631B4F562B0067075A /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
+		B89E47691B4F567F0067075A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = AstroBlastInvasion/Frameworks/Bolts.framework; sourceTree = "<group>"; };
+		B89E476A1B4F567F0067075A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = AstroBlastInvasion/Frameworks/Parse.framework; sourceTree = "<group>"; };
+		B89E476B1B4F567F0067075A /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = AstroBlastInvasion/Frameworks/ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		B89E476C1B4F567F0067075A /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = AstroBlastInvasion/Frameworks/ParseUI.framework; sourceTree = "<group>"; };
+		B89E47721B4F575F0067075A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B89E47741B4F57660067075A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		B89E47761B4F57720067075A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B89E47781B4F57790067075A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B89E477A1B4F57810067075A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B89E477C1B4F57910067075A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		B89E477E1B4F57970067075A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B89E47801B4F57A20067075A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B89E47821B4F57A80067075A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B89E47841B4F57B80067075A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B89E47861B4F57BE0067075A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		B89E47881B4F57CA0067075A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		B89E478A1B4F59120067075A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = "<group>"; };
+		B89E478B1B4F59120067075A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = "<group>"; };
+		B89E478E1B4F5A8D0067075A /* asteroid.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = asteroid.caf; path = sounds/asteroid.caf; sourceTree = "<group>"; };
+		B89E478F1B4F5A8D0067075A /* explosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = explosion.caf; path = sounds/explosion.caf; sourceTree = "<group>"; };
+		B89E47901B4F5A8D0067075A /* laser.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = laser.caf; path = sounds/laser.caf; sourceTree = "<group>"; };
+		B89E47911B4F5A8D0067075A /* life.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = life.caf; path = sounds/life.caf; sourceTree = "<group>"; };
+		B89E47921B4F5A8D0067075A /* lose.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = lose.caf; path = sounds/lose.caf; sourceTree = "<group>"; };
+		B89E47931B4F5A8D0067075A /* miss.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = miss.caf; path = sounds/miss.caf; sourceTree = "<group>"; };
+		B89E47941B4F5A8D0067075A /* shield.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = shield.caf; path = sounds/shield.caf; sourceTree = "<group>"; };
+		B89E47951B4F5A8D0067075A /* win.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = win.caf; path = sounds/win.caf; sourceTree = "<group>"; };
+		B89E479F1B4F5AB80067075A /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x~iphone.png"; path = "images/Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		B89E47A01B4F5AB80067075A /* Default@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x~ipad.png"; path = "images/Default@2x~ipad.png"; sourceTree = "<group>"; };
+		B89E47A11B4F5AB80067075A /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x~iphone.png"; path = "images/Default@2x~iphone.png"; sourceTree = "<group>"; };
+		B89E47A21B4F5AB80067075A /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~ipad.png"; path = "images/Default~ipad.png"; sourceTree = "<group>"; };
+		B89E47A31B4F5AB80067075A /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone.png"; path = "images/Default~iphone.png"; sourceTree = "<group>"; };
+		B89E47A41B4F5AB80067075A /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-76.png"; path = "images/Icon-76.png"; sourceTree = "<group>"; };
+		B89E47A51B4F5AB80067075A /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-76@2x.png"; path = "images/Icon-76@2x.png"; sourceTree = "<group>"; };
+		B89E47A61B4F5AB80067075A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = images/Icon.png; sourceTree = "<group>"; };
+		B89E47A71B4F5AB80067075A /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "images/Icon@2x.png"; sourceTree = "<group>"; };
+		B89E47B41B4F5B3A0067075A /* asteroid-life.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "asteroid-life.png"; path = "art/asteroid-life.png"; sourceTree = "<group>"; };
+		B89E47B51B4F5B3A0067075A /* asteroid-life~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "asteroid-life~ipad.png"; path = "art/asteroid-life~ipad.png"; sourceTree = "<group>"; };
+		B89E47B61B4F5B3A0067075A /* asteroid-X2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "asteroid-X2.png"; path = "art/asteroid-X2.png"; sourceTree = "<group>"; };
+		B89E47B71B4F5B3A0067075A /* asteroid-X2~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "asteroid-X2~ipad.png"; path = "art/asteroid-X2~ipad.png"; sourceTree = "<group>"; };
+		B89E47B81B4F5B3A0067075A /* asteroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = asteroid.png; path = art/asteroid.png; sourceTree = "<group>"; };
+		B89E47B91B4F5B3A0067075A /* explosion.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = explosion.atlas; path = art/explosion.atlas; sourceTree = "<group>"; };
+		B89E47BA1B4F5B3A0067075A /* fighter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fighter.png; path = art/fighter.png; sourceTree = "<group>"; };
+		B89E47BB1B4F5B3A0067075A /* fighter~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fighter~ipad.png"; path = "art/fighter~ipad.png"; sourceTree = "<group>"; };
+		B89E47BC1B4F5B3A0067075A /* how-to-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-1.png"; path = "art/how-to-1.png"; sourceTree = "<group>"; };
+		B89E47BD1B4F5B3A0067075A /* how-to-1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-1@2x.png"; path = "art/how-to-1@2x.png"; sourceTree = "<group>"; };
+		B89E47BE1B4F5B3A0067075A /* how-to-1@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-1@2x~ipad.png"; path = "art/how-to-1@2x~ipad.png"; sourceTree = "<group>"; };
+		B89E47BF1B4F5B3A0067075A /* how-to-1~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-1~ipad.png"; path = "art/how-to-1~ipad.png"; sourceTree = "<group>"; };
+		B89E47C01B4F5B3A0067075A /* how-to-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-2.png"; path = "art/how-to-2.png"; sourceTree = "<group>"; };
+		B89E47C11B4F5B3A0067075A /* how-to-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-2@2x.png"; path = "art/how-to-2@2x.png"; sourceTree = "<group>"; };
+		B89E47C21B4F5B3A0067075A /* how-to-2@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-2@2x~ipad.png"; path = "art/how-to-2@2x~ipad.png"; sourceTree = "<group>"; };
+		B89E47C31B4F5B3A0067075A /* how-to-2~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-2~ipad.png"; path = "art/how-to-2~ipad.png"; sourceTree = "<group>"; };
+		B89E47C41B4F5B3A0067075A /* how-to-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-3.png"; path = "art/how-to-3.png"; sourceTree = "<group>"; };
+		B89E47C51B4F5B3A0067075A /* how-to-3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-3@2x.png"; path = "art/how-to-3@2x.png"; sourceTree = "<group>"; };
+		B89E47C61B4F5B3A0067075A /* how-to-3@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-3@2x~ipad.png"; path = "art/how-to-3@2x~ipad.png"; sourceTree = "<group>"; };
+		B89E47C71B4F5B3A0067075A /* how-to-3~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-3~ipad.png"; path = "art/how-to-3~ipad.png"; sourceTree = "<group>"; };
+		B89E47C81B4F5B3A0067075A /* laser-ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "laser-ball.png"; path = "art/laser-ball.png"; sourceTree = "<group>"; };
+		B89E47C91B4F5B3A0067075A /* laser-ball~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "laser-ball~ipad.png"; path = "art/laser-ball~ipad.png"; sourceTree = "<group>"; };
+		B89E47CA1B4F5B3A0067075A /* red-laser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red-laser.png"; path = "art/red-laser.png"; sourceTree = "<group>"; };
+		B89E47CB1B4F5B3A0067075A /* shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shield.png; path = art/shield.png; sourceTree = "<group>"; };
+		B89E47CC1B4F5B3A0067075A /* shield~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shield~ipad.png"; path = "art/shield~ipad.png"; sourceTree = "<group>"; };
+		B89E47CD1B4F5B3A0067075A /* space@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "space@2x~ipad.png"; path = "art/space@2x~ipad.png"; sourceTree = "<group>"; };
+		B89E47CE1B4F5B3A0067075A /* space@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "space@2x~iphone.png"; path = "art/space@2x~iphone.png"; sourceTree = "<group>"; };
+		B89E47CF1B4F5B3A0067075A /* space@3x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "space@3x~iphone.png"; path = "art/space@3x~iphone.png"; sourceTree = "<group>"; };
+		B89E47D01B4F5B3A0067075A /* space~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "space~ipad.png"; path = "art/space~ipad.png"; sourceTree = "<group>"; };
+		B89E47D11B4F5B3A0067075A /* space~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "space~iphone.png"; path = "art/space~iphone.png"; sourceTree = "<group>"; };
+		B89E47D21B4F5B3A0067075A /* spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spaceship.png; path = art/spaceship.png; sourceTree = "<group>"; };
+		B89E47D31B4F5B3A0067075A /* spaceship~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spaceship~ipad.png"; path = "art/spaceship~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +215,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B89E47891B4F57CA0067075A /* Social.framework in Frameworks */,
+				B89E47871B4F57BE0067075A /* Accounts.framework in Frameworks */,
+				B89E47851B4F57B80067075A /* SystemConfiguration.framework in Frameworks */,
+				B89E47831B4F57A80067075A /* StoreKit.framework in Frameworks */,
+				B89E47811B4F57A20067075A /* Security.framework in Frameworks */,
+				B89E477F1B4F57970067075A /* QuartzCore.framework in Frameworks */,
+				B89E477D1B4F57910067075A /* MobileCoreServices.framework in Frameworks */,
+				B89E477B1B4F57810067075A /* libz.dylib in Frameworks */,
+				B89E47791B4F57790067075A /* CoreLocation.framework in Frameworks */,
+				B89E47771B4F57720067075A /* CoreGraphics.framework in Frameworks */,
+				B89E47751B4F57660067075A /* CFNetwork.framework in Frameworks */,
+				B89E47731B4F575F0067075A /* AudioToolbox.framework in Frameworks */,
+				B89E476E1B4F567F0067075A /* Parse.framework in Frameworks */,
+				B89E476D1B4F567F0067075A /* Bolts.framework in Frameworks */,
+				B89E47701B4F567F0067075A /* ParseUI.framework in Frameworks */,
+				B89E476F1B4F567F0067075A /* ParseFacebookUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +247,7 @@
 		B89E47081B4F53810067075A = {
 			isa = PBXGroup;
 			children = (
+				B89E47711B4F56860067075A /* Frameworks */,
 				B89E47131B4F53810067075A /* AstroBlastInvasion */,
 				B89E47321B4F53810067075A /* AstroBlastInvasionTests */,
 				B89E47121B4F53810067075A /* Products */,
@@ -86,17 +266,25 @@
 		B89E47131B4F53810067075A /* AstroBlastInvasion */ = {
 			isa = PBXGroup;
 			children = (
+				B89E47F41B4F5B420067075A /* Art */,
+				B89E47B11B4F5ABD0067075A /* Images */,
+				B89E479E1B4F5A940067075A /* Sounds */,
+				B89E478D1B4F59250067075A /* Reachability */,
 				B89E47181B4F53810067075A /* AppDelegate.h */,
 				B89E47191B4F53810067075A /* AppDelegate.m */,
-				B89E471B1B4F53810067075A /* GameScene.h */,
-				B89E471C1B4F53810067075A /* GameScene.m */,
-				B89E471E1B4F53810067075A /* GameScene.sks */,
+				B89E47F61B4F5C010067075A /* Scenes */,
 				B89E47201B4F53810067075A /* GameViewController.h */,
 				B89E47211B4F53810067075A /* GameViewController.m */,
 				B89E47231B4F53810067075A /* Main.storyboard */,
 				B89E47261B4F53810067075A /* Images.xcassets */,
 				B89E47281B4F53810067075A /* LaunchScreen.xib */,
 				B89E47141B4F53810067075A /* Supporting Files */,
+				B89E47F51B4F5BB00067075A /* Parse */,
+				B89E474F1B4F55E20067075A /* CustomTableViewCell.h */,
+				B89E47501B4F55E20067075A /* CustomTableViewCell.m */,
+				B89E47511B4F55E20067075A /* CustomTableViewCell.xib */,
+				B89E47491B4F55E20067075A /* ConnectionManagement.h */,
+				B89E474A1B4F55E20067075A /* ConnectionManagement.m */,
 			);
 			path = AstroBlastInvasion;
 			sourceTree = "<group>";
@@ -125,6 +313,140 @@
 				B89E47341B4F53810067075A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B89E47711B4F56860067075A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B89E47881B4F57CA0067075A /* Social.framework */,
+				B89E47861B4F57BE0067075A /* Accounts.framework */,
+				B89E47841B4F57B80067075A /* SystemConfiguration.framework */,
+				B89E47821B4F57A80067075A /* StoreKit.framework */,
+				B89E47801B4F57A20067075A /* Security.framework */,
+				B89E477E1B4F57970067075A /* QuartzCore.framework */,
+				B89E477C1B4F57910067075A /* MobileCoreServices.framework */,
+				B89E477A1B4F57810067075A /* libz.dylib */,
+				B89E47781B4F57790067075A /* CoreLocation.framework */,
+				B89E47761B4F57720067075A /* CoreGraphics.framework */,
+				B89E47741B4F57660067075A /* CFNetwork.framework */,
+				B89E47721B4F575F0067075A /* AudioToolbox.framework */,
+				B89E47691B4F567F0067075A /* Bolts.framework */,
+				B89E476A1B4F567F0067075A /* Parse.framework */,
+				B89E476B1B4F567F0067075A /* ParseFacebookUtils.framework */,
+				B89E476C1B4F567F0067075A /* ParseUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B89E478D1B4F59250067075A /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				B89E478A1B4F59120067075A /* Reachability.h */,
+				B89E478B1B4F59120067075A /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		B89E479E1B4F5A940067075A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				B89E478E1B4F5A8D0067075A /* asteroid.caf */,
+				B89E478F1B4F5A8D0067075A /* explosion.caf */,
+				B89E47901B4F5A8D0067075A /* laser.caf */,
+				B89E47911B4F5A8D0067075A /* life.caf */,
+				B89E47921B4F5A8D0067075A /* lose.caf */,
+				B89E47931B4F5A8D0067075A /* miss.caf */,
+				B89E47941B4F5A8D0067075A /* shield.caf */,
+				B89E47951B4F5A8D0067075A /* win.caf */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
+		B89E47B11B4F5ABD0067075A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B89E479F1B4F5AB80067075A /* Default-568h@2x~iphone.png */,
+				B89E47A01B4F5AB80067075A /* Default@2x~ipad.png */,
+				B89E47A11B4F5AB80067075A /* Default@2x~iphone.png */,
+				B89E47A21B4F5AB80067075A /* Default~ipad.png */,
+				B89E47A31B4F5AB80067075A /* Default~iphone.png */,
+				B89E47A41B4F5AB80067075A /* Icon-76.png */,
+				B89E47A51B4F5AB80067075A /* Icon-76@2x.png */,
+				B89E47A61B4F5AB80067075A /* Icon.png */,
+				B89E47A71B4F5AB80067075A /* Icon@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		B89E47F41B4F5B420067075A /* Art */ = {
+			isa = PBXGroup;
+			children = (
+				B89E47B41B4F5B3A0067075A /* asteroid-life.png */,
+				B89E47B51B4F5B3A0067075A /* asteroid-life~ipad.png */,
+				B89E47B61B4F5B3A0067075A /* asteroid-X2.png */,
+				B89E47B71B4F5B3A0067075A /* asteroid-X2~ipad.png */,
+				B89E47B81B4F5B3A0067075A /* asteroid.png */,
+				B89E47B91B4F5B3A0067075A /* explosion.atlas */,
+				B89E47BA1B4F5B3A0067075A /* fighter.png */,
+				B89E47BB1B4F5B3A0067075A /* fighter~ipad.png */,
+				B89E47BC1B4F5B3A0067075A /* how-to-1.png */,
+				B89E47BD1B4F5B3A0067075A /* how-to-1@2x.png */,
+				B89E47BE1B4F5B3A0067075A /* how-to-1@2x~ipad.png */,
+				B89E47BF1B4F5B3A0067075A /* how-to-1~ipad.png */,
+				B89E47C01B4F5B3A0067075A /* how-to-2.png */,
+				B89E47C11B4F5B3A0067075A /* how-to-2@2x.png */,
+				B89E47C21B4F5B3A0067075A /* how-to-2@2x~ipad.png */,
+				B89E47C31B4F5B3A0067075A /* how-to-2~ipad.png */,
+				B89E47C41B4F5B3A0067075A /* how-to-3.png */,
+				B89E47C51B4F5B3A0067075A /* how-to-3@2x.png */,
+				B89E47C61B4F5B3A0067075A /* how-to-3@2x~ipad.png */,
+				B89E47C71B4F5B3A0067075A /* how-to-3~ipad.png */,
+				B89E47C81B4F5B3A0067075A /* laser-ball.png */,
+				B89E47C91B4F5B3A0067075A /* laser-ball~ipad.png */,
+				B89E47CA1B4F5B3A0067075A /* red-laser.png */,
+				B89E47CB1B4F5B3A0067075A /* shield.png */,
+				B89E47CC1B4F5B3A0067075A /* shield~ipad.png */,
+				B89E47CD1B4F5B3A0067075A /* space@2x~ipad.png */,
+				B89E47CE1B4F5B3A0067075A /* space@2x~iphone.png */,
+				B89E47CF1B4F5B3A0067075A /* space@3x~iphone.png */,
+				B89E47D01B4F5B3A0067075A /* space~ipad.png */,
+				B89E47D11B4F5B3A0067075A /* space~iphone.png */,
+				B89E47D21B4F5B3A0067075A /* spaceship.png */,
+				B89E47D31B4F5B3A0067075A /* spaceship~ipad.png */,
+			);
+			name = Art;
+			sourceTree = "<group>";
+		};
+		B89E47F51B4F5BB00067075A /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				B89E474B1B4F55E20067075A /* CustomPFLoginViewController.h */,
+				B89E474C1B4F55E20067075A /* CustomPFLoginViewController.m */,
+				B89E474D1B4F55E20067075A /* CustomPFSignUpViewController.h */,
+				B89E474E1B4F55E20067075A /* CustomPFSignUpViewController.m */,
+			);
+			name = Parse;
+			sourceTree = "<group>";
+		};
+		B89E47F61B4F5C010067075A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B89E47621B4F562B0067075A /* MainMenuScene.h */,
+				B89E47631B4F562B0067075A /* MainMenuScene.m */,
+				B89E471B1B4F53810067075A /* GameScene.h */,
+				B89E471C1B4F53810067075A /* GameScene.m */,
+				B89E475A1B4F56080067075A /* HowToScene.h */,
+				B89E475B1B4F56080067075A /* HowToScene.m */,
+				B89E47411B4F55C10067075A /* AboutScene.h */,
+				B89E47421B4F55C10067075A /* AboutScene.m */,
+				B89E475F1B4F561E0067075A /* LeaderboardScene.h */,
+				B89E47601B4F561E0067075A /* LeaderboardScene.m */,
+				B89E47431B4F55C10067075A /* AchievementsScene.h */,
+				B89E47441B4F55C10067075A /* AchievementsScene.m */,
+				B89E47571B4F55F20067075A /* GameOverScene.h */,
+				B89E47581B4F55F20067075A /* GameOverScene.m */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +498,7 @@
 				TargetAttributes = {
 					B89E47101B4F53810067075A = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 58QEPHRML8;
 					};
 					B89E472E1B4F53810067075A = {
 						CreatedOnToolsVersion = 6.4;
@@ -207,10 +530,59 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B89E47971B4F5A8D0067075A /* explosion.caf in Resources */,
+				B89E47A91B4F5AB80067075A /* Default@2x~ipad.png in Resources */,
+				B89E47DF1B4F5B3A0067075A /* how-to-1~ipad.png in Resources */,
+				B89E47DE1B4F5B3A0067075A /* how-to-1@2x~ipad.png in Resources */,
+				B89E47D81B4F5B3A0067075A /* asteroid.png in Resources */,
+				B89E47E11B4F5B3A0067075A /* how-to-2@2x.png in Resources */,
+				B89E47ED1B4F5B3A0067075A /* space@2x~ipad.png in Resources */,
+				B89E47EE1B4F5B3A0067075A /* space@2x~iphone.png in Resources */,
+				B89E47A81B4F5AB80067075A /* Default-568h@2x~iphone.png in Resources */,
+				B89E47AE1B4F5AB80067075A /* Icon-76@2x.png in Resources */,
+				B89E47E21B4F5B3A0067075A /* how-to-2@2x~ipad.png in Resources */,
+				B89E47B01B4F5AB80067075A /* Icon@2x.png in Resources */,
+				B89E47E51B4F5B3A0067075A /* how-to-3@2x.png in Resources */,
+				B89E47AB1B4F5AB80067075A /* Default~ipad.png in Resources */,
+				B89E47981B4F5A8D0067075A /* laser.caf in Resources */,
+				B89E47E81B4F5B3A0067075A /* laser-ball.png in Resources */,
+				B89E47DD1B4F5B3A0067075A /* how-to-1@2x.png in Resources */,
+				B89E47EC1B4F5B3A0067075A /* shield~ipad.png in Resources */,
+				B89E47E71B4F5B3A0067075A /* how-to-3~ipad.png in Resources */,
+				B89E47F31B4F5B3A0067075A /* spaceship~ipad.png in Resources */,
+				B89E479A1B4F5A8D0067075A /* lose.caf in Resources */,
+				B89E47F11B4F5B3A0067075A /* space~iphone.png in Resources */,
+				B89E47D61B4F5B3A0067075A /* asteroid-X2.png in Resources */,
+				B89E47AF1B4F5AB80067075A /* Icon.png in Resources */,
+				B89E47991B4F5A8D0067075A /* life.caf in Resources */,
+				B89E47DB1B4F5B3A0067075A /* fighter~ipad.png in Resources */,
+				B89E47561B4F55E20067075A /* CustomTableViewCell.xib in Resources */,
+				B89E47EB1B4F5B3A0067075A /* shield.png in Resources */,
+				B89E47AC1B4F5AB80067075A /* Default~iphone.png in Resources */,
 				B89E472A1B4F53810067075A /* LaunchScreen.xib in Resources */,
+				B89E47D41B4F5B3A0067075A /* asteroid-life.png in Resources */,
+				B89E479C1B4F5A8D0067075A /* shield.caf in Resources */,
+				B89E47F01B4F5B3A0067075A /* space~ipad.png in Resources */,
 				B89E47271B4F53810067075A /* Images.xcassets in Resources */,
-				B89E471F1B4F53810067075A /* GameScene.sks in Resources */,
+				B89E479D1B4F5A8D0067075A /* win.caf in Resources */,
+				B89E47E91B4F5B3A0067075A /* laser-ball~ipad.png in Resources */,
+				B89E47E01B4F5B3A0067075A /* how-to-2.png in Resources */,
+				B89E47EA1B4F5B3A0067075A /* red-laser.png in Resources */,
+				B89E479B1B4F5A8D0067075A /* miss.caf in Resources */,
+				B89E47E61B4F5B3A0067075A /* how-to-3@2x~ipad.png in Resources */,
+				B89E47DC1B4F5B3A0067075A /* how-to-1.png in Resources */,
+				B89E47F21B4F5B3A0067075A /* spaceship.png in Resources */,
+				B89E47DA1B4F5B3A0067075A /* fighter.png in Resources */,
 				B89E47251B4F53810067075A /* Main.storyboard in Resources */,
+				B89E47AD1B4F5AB80067075A /* Icon-76.png in Resources */,
+				B89E47EF1B4F5B3A0067075A /* space@3x~iphone.png in Resources */,
+				B89E47D51B4F5B3A0067075A /* asteroid-life~ipad.png in Resources */,
+				B89E47E31B4F5B3A0067075A /* how-to-2~ipad.png in Resources */,
+				B89E47D71B4F5B3A0067075A /* asteroid-X2~ipad.png in Resources */,
+				B89E47AA1B4F5AB80067075A /* Default@2x~iphone.png in Resources */,
+				B89E47E41B4F5B3A0067075A /* how-to-3.png in Resources */,
+				B89E47961B4F5A8D0067075A /* asteroid.caf in Resources */,
+				B89E47D91B4F5B3A0067075A /* explosion.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,10 +600,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B89E47611B4F561E0067075A /* LeaderboardScene.m in Sources */,
+				B89E47451B4F55C10067075A /* AboutScene.m in Sources */,
+				B89E47531B4F55E20067075A /* CustomPFLoginViewController.m in Sources */,
+				B89E475D1B4F56080067075A /* HowToScene.m in Sources */,
+				B89E478C1B4F59120067075A /* Reachability.m in Sources */,
+				B89E47661B4F562B0067075A /* MainMenuScene.m in Sources */,
+				B89E47591B4F55F20067075A /* GameOverScene.m in Sources */,
 				B89E47221B4F53810067075A /* GameViewController.m in Sources */,
+				B89E47521B4F55E20067075A /* ConnectionManagement.m in Sources */,
+				B89E47461B4F55C10067075A /* AchievementsScene.m in Sources */,
 				B89E471A1B4F53810067075A /* AppDelegate.m in Sources */,
 				B89E471D1B4F53810067075A /* GameScene.m in Sources */,
 				B89E47171B4F53810067075A /* main.m in Sources */,
+				B89E47551B4F55E20067075A /* CustomTableViewCell.m in Sources */,
+				B89E47541B4F55E20067075A /* CustomPFSignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,9 +742,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AstroBlastInvasion/Frameworks",
+				);
 				INFOPLIST_FILE = AstroBlastInvasion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -369,9 +759,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AstroBlastInvasion/Frameworks",
+				);
 				INFOPLIST_FILE = AstroBlastInvasion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

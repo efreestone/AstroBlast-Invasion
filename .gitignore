@@ -25,4 +25,8 @@ DerivedData
 #
 # Pods/
 # DS Store files
+<<<<<<< HEAD
 *.DS_Store
+=======
+*.DS_Store
+>>>>>>> workingbranch
