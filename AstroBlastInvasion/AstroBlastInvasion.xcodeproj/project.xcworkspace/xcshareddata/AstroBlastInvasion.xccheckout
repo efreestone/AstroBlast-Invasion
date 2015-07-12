@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>A9ECC6B9-3D26-4E7A-B755-8859F580E0BB</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>AstroBlastInvasion</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>D860D009C9B1A42B356955A02EA9DD1D7966BD36</key>
 		<string>https://bitbucket.org/efreestone/astroblast-invasion.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AstroBlastInvasion/AstroBlastInvasion.xcodeproj/project.xcworkspace</string>
+	<string>AstroBlastInvasion/AstroBlastInvasion.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D860D009C9B1A42B356955A02EA9DD1D7966BD36</key>
