@@ -74,8 +74,6 @@
             labelGap = 45;
         }
         
-        //test
-        
         float labelGapFromFont = fontSize / 2.65;
         
         //Create and set sign in label. Will be modified to say Sign Out when user is logged in
