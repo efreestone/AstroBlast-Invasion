@@ -71,7 +71,7 @@
         quickDrawDesc = @"Beat the level in 6 seconds or less.";
         halfDozenDesc = @"Destroy 6 enemy ships in a row without missing any.";
         aDozenDesc = @"Destroy 12 enemy ships in a row without missing any.";
-        dozenAndAHalfDesc = @"Destroy 12 enemy ships in a row without missing any.";
+        dozenAndAHalfDesc = @"Destroy 18 enemy ships in a row without missing any.";
         lateBloomerDesc = @"Take longer than 12 seconds to beat the level.";
         
         flawlessColor = [SKColor darkGrayColor];

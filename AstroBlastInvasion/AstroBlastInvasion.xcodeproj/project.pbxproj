@@ -825,6 +825,7 @@
 				B89E473B1B4F53810067075A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B89E473C1B4F53810067075A /* Build configuration list for PBXNativeTarget "AstroBlastInvasionTests" */ = {
 			isa = XCConfigurationList;
@@ -833,6 +834,7 @@
 				B89E473E1B4F53810067075A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
