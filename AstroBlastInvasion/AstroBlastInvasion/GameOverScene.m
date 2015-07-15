@@ -17,6 +17,7 @@
 #import "Reachability.h"
 #import <Parse/Parse.h>
 #import <Social/Social.h>
+#import <GameKit/GameKit.h>
 
 @interface GameOverScene ()
 
@@ -42,6 +43,7 @@
     
     NSMutableArray *achievementsArray;
     UITableView *achievementsTable;
+    NSString *leaderboardID;
 }
 
 //Use custom init to pass in playerWin bool and change display accordingly
@@ -103,17 +105,27 @@
             
             //NSLog(@"Total: %d", _gameViewController.totalOfEnemiesDestroyed);
             
-            if ([PFUser currentUser]) {
-                [self saveScoreToParse:roundedScore];
-                //Check connection and change twitter button accordingly
-                if (![connectionMGMT checkConnection]) {
-                    self.twitterLabel.fontColor = [SKColor grayColor];
-                } else {
-                    self.twitterLabel.name = @"twitterLabel";
-                }
+//            if ([PFUser currentUser]) {
+//                [self saveScoreToParse:roundedScore];
+//                //Check connection and change twitter button accordingly
+//                if (![connectionMGMT checkConnection]) {
+//                    self.twitterLabel.fontColor = [SKColor grayColor];
+//                } else {
+//                    self.twitterLabel.name = @"twitterLabel";
+//                }
+//            } //else {
+//                userDefaults = [NSUserDefaults standardUserDefaults];
+//                self.twitterLabel.fontColor = [SKColor grayColor];
+//            }
+            
+            leaderboardID = [userDefaults objectForKey:@"leaderboardIdentifier"];
+            
+            //Post score to Game Center
+            if ([GKLocalPlayer localPlayer].isAuthenticated) {
+                NSLog(@"Game Center eneabled, posting score to remote");
+                [self reportScore:roundedScore];
             } else {
-                userDefaults = [NSUserDefaults standardUserDefaults];
-                self.twitterLabel.fontColor = [SKColor grayColor];
+                NSLog(@"NO Game Center!!");
             }
         }
         
@@ -258,6 +270,20 @@
             }
         }];
     }
+}
+
+-(void)reportScore:(int)newScore {
+    NSLog(@"report score");
+    GKScore *score = [[GKScore alloc] initWithLeaderboardIdentifier:leaderboardID];
+    score.value = newScore;
+    
+    [GKScore reportScores:@[score] withCompletionHandler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"%@", [error localizedDescription]);
+        } else {
+            NSLog(@"Successfully reported score");
+        }
+    }];
 }
 
 //Post score to twitter

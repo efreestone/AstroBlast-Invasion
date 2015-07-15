@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "GameViewController.h"
 #import <Parse/Parse.h>
+#import <GameKit/GameKit.h>
 
 @interface AppDelegate ()
 
@@ -21,6 +22,9 @@
     [Parse setApplicationId:@"FJw8EUkeMQHZpIq6SFEjy194dYl5fxLuUwLyZTHi"
                   clientKey:@"ROwfakQPjubmciViaIS0Vy33aG4AGm1JFKJUMqYs"];
     // Override point for customization after application launch.
+    
+    //[self authenticateLocalPlayer];
+    
     return YES;
 }
 
@@ -44,6 +48,32 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)authenticateLocalPlayer{
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    
+    localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error){
+        if (viewController != nil) {
+            //[self presentViewController:viewController animated:YES completion:nil];
+        } else {
+            if ([GKLocalPlayer localPlayer].authenticated) {
+                _gameCenterEnabled = YES;
+                
+                // Get the default leaderboard identifier.
+                [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error) {
+                    if (error != nil) {
+                        NSLog(@"%@", [error localizedDescription]);
+                    }
+                    else{
+                        _leaderboardIdentifier = leaderboardIdentifier;
+                    }
+                }];
+            } else {
+                _gameCenterEnabled = NO;
+            }
+        }
+    };
 }
 
 @end

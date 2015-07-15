@@ -14,12 +14,14 @@
 #import "Reachability.h"
 #import "ConnectionManagement.h"
 //#import <Parse/Parse.h>
+#import <GameKit/GameKit.h>
 
 @implementation GameViewController {
     ConnectionManagement *connectionMGMT;
     MainMenuScene *mainMenuScene;
     NSString *noConnectionMessage;
     BOOL connectionExists;
+    NSUserDefaults *userDefaults;
 }
 
 @synthesize userSkippedLogin;
@@ -30,6 +32,7 @@
     
     connectionMGMT = [[ConnectionManagement alloc] init];
     connectionExists = [connectionMGMT checkConnection];
+    userDefaults = [NSUserDefaults standardUserDefaults];
     
     //_totalOfEnemiesDestroyed = 0;
     
@@ -59,9 +62,41 @@
         [self noConnectionAlert:noConnectionMessage];
     } else {
         if (!userSkippedLogin) {
-            [self isUserLoggedIn];
+            //[self isUserLoggedIn];
+            [self authGameCenterLocalPlayer];
         }
     }
+}
+
+-(void)authGameCenterLocalPlayer {
+    NSLog(@"authGameCenterLocalPlayer");
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    
+    localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error){
+        if (viewController != nil) {
+            NSLog(@"authenticationHandler IF");
+            [self presentViewController:viewController animated:YES completion:nil];
+        } else {
+            NSLog(@"authenticationHandler ELSE");
+            if ([GKLocalPlayer localPlayer].authenticated) {
+                NSLog(@"localPlayer authenticated");
+                _gameCenterEnabled = YES;
+                
+                // Get the default leaderboard identifier.
+                [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error) {
+                    if (error != nil) {
+                        NSLog(@"%@", [error localizedDescription]);
+                    } else {
+                        _leaderboardIdentifier = leaderboardIdentifier;
+                        [userDefaults setObject:leaderboardIdentifier forKey:@"leaderboardIdentifier"];
+                    }
+                }];
+            } else {
+                NSLog(@"localPlayer NOT authenticated");
+                _gameCenterEnabled = NO;
+            }
+        }
+    };
 }
 
 //Check if a user is signed in, present login view if not.

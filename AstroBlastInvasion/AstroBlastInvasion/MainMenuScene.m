@@ -207,7 +207,7 @@
     return self;
 }
 
-//Quer parse for scores
+//Query parse for scores
 -(void)queryParseForScores {
     scoresQuery = [PFQuery queryWithClassName:@"userScore"];
     [scoresQuery orderByAscending:@"newScore"];
@@ -287,7 +287,8 @@
             NSLog(@"Sign In Pressed");
             //Check connection and present login if exists
             if ([connectionMGMT checkConnection]) {
-                [self.gameViewController isUserLoggedIn];
+                //[self.gameViewController isUserLoggedIn];
+                [self.gameViewController authGameCenterLocalPlayer];
             } else {
                 NSString *signInMessage = @"No network connection available. Internet is required to sign in. Please check your connection and try again.";
                 [self noConnectionAlert:signInMessage];

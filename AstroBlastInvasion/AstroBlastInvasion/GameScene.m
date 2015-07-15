@@ -756,7 +756,7 @@ static inline CGPoint rwNormalize(CGPoint a) {
         
         //Make sure user is logged in. Moves on to achievements if one is.
         if (![PFUser currentUser]) {
-            [_gameOverScene noUserAlert];
+            //[_gameOverScene noUserAlert];
         } else {
             //Check connection before checking achievements
             if ([connectionMGMT checkConnection]) {

@@ -14,10 +14,14 @@
 @interface GameViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 -(void)isUserLoggedIn;
+-(void)authGameCenterLocalPlayer;
 -(int)incrementTotalDestroyed:(int)totalDestroyed;
 
 @property (nonatomic) BOOL userSkippedLogin;
 @property (nonatomic) int totalOfEnemiesDestroyed;
+
+@property (nonatomic) BOOL gameCenterEnabled;
+@property (strong, nonatomic) NSString *leaderboardIdentifier;
 
 
 @end

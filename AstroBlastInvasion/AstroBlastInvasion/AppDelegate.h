@@ -12,6 +12,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property bool gameCenterEnabled;
+@property bool leaderboardIdentifier;
+
 
 @end
 
