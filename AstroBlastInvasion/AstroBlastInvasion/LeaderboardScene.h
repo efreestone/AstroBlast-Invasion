@@ -19,6 +19,7 @@
 
 -(void)queryParseForScores;
 -(void)queryUserDefaults;
+-(void)querryGameCenterForLeaderboard;
 
 @property (strong, nonatomic) SKLabelNode *backLabel;
 @property (strong, nonatomic) UITableView *leaderboardTableView;

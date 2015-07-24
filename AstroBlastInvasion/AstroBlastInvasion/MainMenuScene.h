@@ -15,8 +15,9 @@
 #import <SpriteKit/SpriteKit.h>
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
+#import <GameKit/GameKit.h>
 
-@interface MainMenuScene : SKScene <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface MainMenuScene : SKScene <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, GKGameCenterControllerDelegate>
 
 //Declare labels which will act as a buttons
 @property (strong, nonatomic) SKLabelNode *playButtonLabel;

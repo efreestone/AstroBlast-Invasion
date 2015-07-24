@@ -45,6 +45,7 @@
     BOOL connectionExists;
     NSString *signInString;
     PFQuery *scoresQuery;
+    NSUserDefaults *userDefaults;
 }
 
 //Synthesize for getters/setters
@@ -59,6 +60,8 @@
         }
         
         connectionExists = [connectionMGMT checkConnection];
+        
+        userDefaults = [NSUserDefaults standardUserDefaults];
         
         SKSpriteNode *backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"space"];
         backgroundImage.position = CGPointMake(self.size.width / 2, self.size.height / 2);
@@ -335,6 +338,7 @@
         //[self queryParseForScores];
         if ([connectionMGMT checkConnection] && [GKLocalPlayer localPlayer].isAuthenticated) {
             //[_leaderboardScene queryParseForScores];
+            [_leaderboardScene querryGameCenterForLeaderboard];
             [self runAction:[SKAction sequence:@[waitDuration, revealLeaderboardScene]]];
         } else {
             self.leaderboardLabel.fontColor = self.iOSBlueButtonColor;
@@ -376,6 +380,29 @@
     //Show alert
     [connectionAlert show];
 } //noConnectionAlert close
+
+//-(void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard{
+//    GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
+//    NSString *leaderboardID = [userDefaults objectForKey:@"leaderboardIdentifier"];
+//    
+//    gcViewController.gameCenterDelegate = self;
+//    
+//    if (shouldShowLeaderboard) {
+//        gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
+//        gcViewController.leaderboardIdentifier = leaderboardID;
+//    }
+//    else{
+//        gcViewController.viewState = GKGameCenterViewControllerStateAchievements;
+//    }
+//    
+//    //[self presentViewController:gcViewController animated:YES completion:nil];
+//
+//}
+
+-(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
+{
+    [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 //-(void)setTextOfSignInLabel {
 //    NSString *labelString = signInString;

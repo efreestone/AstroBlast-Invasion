@@ -21,10 +21,12 @@
     NSMutableArray *allScoresArray;
     NSMutableArray *iPadArray;
     NSMutableArray *iPhoneArray;
+    NSUserDefaults *userDefaults;
 }
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
+        userDefaults = [NSUserDefaults standardUserDefaults];
         //Set background
         SKSpriteNode *backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"space"];
         backgroundImage.position = CGPointMake(self.size.width / 2, self.size.height / 2);
@@ -90,7 +92,6 @@
 
 //Check user defaults for local scores and display if any exist
 -(void)queryUserDefaults {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSMutableArray *unsortedArray = [[NSMutableArray alloc] init];
     NSMutableArray *sortedScoresArray = [[NSMutableArray alloc] init];
     NSData *dataOfScoresArray = [userDefaults objectForKey:@"localScoresArray"];
@@ -294,10 +295,17 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *scoreUserName = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"scoreUserName"];
-    NSNumber *scoreNumber = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"newScore"];
-    NSString *scoreString = [scoreNumber stringValue];
-    NSString *deviceType = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"deviceType"];
+    GKScore *gkScore = [allScoresArray objectAtIndex:indexPath.row];
+    
+    NSString *scoreUserName = gkScore.player.alias;
+    NSString *scoreString = gkScore.formattedValue;
+    
+    NSLog(@"User Name = %@", scoreUserName);
+    
+//    NSString *scoreUserName = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"alias"];
+//    NSNumber *scoreNumber = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"formattedValue"];
+//    NSString *scoreString = [scoreNumber stringValue];
+    //NSString *deviceType = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"deviceType"];
     
     //Not reusing cells to maintain sort order
     //static NSString *cellId = @"Cell";
@@ -317,12 +325,34 @@
                 customCell.usernameLabel.textColor = [UIColor whiteColor];
                 customCell.scoreLabel.text = scoreString;
                 customCell.scoreLabel.textColor = [UIColor whiteColor];
-                customCell.deviceLabel.text = deviceType;
+                //customCell.deviceLabel.text = deviceType;
                 customCell.deviceLabel.textColor = [UIColor whiteColor];
             }
         }
     }
     return customCell;
+}
+
+-(void)querryGameCenterForLeaderboard {
+    NSString *leaderboardID = [userDefaults objectForKey:@"leaderboardIdentifier"];
+    GKLeaderboard *leaderboardRequest = [[GKLeaderboard alloc] init];
+    
+    if (leaderboardRequest != nil) {
+        leaderboardRequest.identifier = leaderboardID;
+        leaderboardRequest.playerScope = GKLeaderboardPlayerScopeGlobal;
+        leaderboardRequest.timeScope = GKLeaderboardTimeScopeAllTime;
+        leaderboardRequest.range = NSMakeRange(1,10);
+        [leaderboardRequest loadScoresWithCompletionHandler: ^(NSArray *scores, NSError *error) {
+            if (!error) {
+                //NSLog(@"Scores = %@", scores);
+                
+                allScoresArray = (NSMutableArray*) scores;
+                [_leaderboardTableView reloadData];
+            } else {
+                NSLog(@"Querry GC Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+    }
 }
 
 @end
