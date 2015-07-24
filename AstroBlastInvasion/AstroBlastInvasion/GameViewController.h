@@ -13,7 +13,7 @@
 
 @interface GameViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
--(void)isUserLoggedIn;
+//-(void)isUserLoggedIn;
 -(void)authGameCenterLocalPlayer;
 -(int)incrementTotalDestroyed:(int)totalDestroyed;
 

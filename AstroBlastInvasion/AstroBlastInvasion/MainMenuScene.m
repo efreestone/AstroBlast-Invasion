@@ -74,22 +74,22 @@
             labelGap = 45;
         }
         
-        float labelGapFromFont = fontSize / 2.65;
+//        float labelGapFromFont = fontSize / 2.65;
         
-        //Create and set sign in label. Will be modified to say Sign Out when user is logged in
-        signInLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
-        //signInLabel.text = signInString;
-        signInLabel.name = @"signInLabel";
-        signInLabel.fontColor = [SKColor whiteColor];
-        signInLabel.fontSize = fontSize / 2.65;
-        signInLabel.position = CGPointMake(labelGapFromFont, self.size.height - labelGap);
-        signInLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
-        
-        //Change sign in label to sign out if user is already logged in.
-        //This is to fix issue in iPhone sim when game is launched with user already logged in
-        [self setTextOfSignInLabel];
-
-        [self addChild:signInLabel];
+//        //Create and set sign in label. Will be modified to say Sign Out when user is logged in
+//        signInLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
+//        //signInLabel.text = signInString;
+//        signInLabel.name = @"signInLabel";
+//        signInLabel.fontColor = [SKColor whiteColor];
+//        signInLabel.fontSize = fontSize / 2.65;
+//        signInLabel.position = CGPointMake(labelGapFromFont, self.size.height - labelGap);
+//        signInLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+//        
+//        //Change sign in label to sign out if user is already logged in.
+//        //This is to fix issue in iPhone sim when game is launched with user already logged in
+//        [self setTextOfSignInLabel];
+//
+//        [self addChild:signInLabel];
         
         //Create and set message label
         SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
@@ -280,28 +280,28 @@
     //Check if touch point is Try Again label
     SKNode *touchedLabel = [self nodeAtPoint:location];
     
-    //Sign in/out button
-    if ([touchedLabel.name isEqual: @"signInLabel"]) {
-        
-        if ([signInLabel.text isEqualToString:@"Sign In"]) {
-            NSLog(@"Sign In Pressed");
-            //Check connection and present login if exists
-            if ([connectionMGMT checkConnection]) {
-                //[self.gameViewController isUserLoggedIn];
-                [self.gameViewController authGameCenterLocalPlayer];
-            } else {
-                NSString *signInMessage = @"No network connection available. Internet is required to sign in. Please check your connection and try again.";
-                [self noConnectionAlert:signInMessage];
-            }
-        } else {
-            NSLog(@"Sign Out Pressed");
-            [PFUser logOut];
-            [self.gameViewController isUserLoggedIn];
-            signInLabel.text = signInString;
-            self.achievementsLabel.fontColor = [SKColor darkGrayColor];
-            _achievementsScene = [[AchievementsScene alloc] initWithSize:self.size];
-        }
-    }
+//    //Sign in/out button
+//    if ([touchedLabel.name isEqual: @"signInLabel"]) {
+//        
+//        if ([signInLabel.text isEqualToString:@"Sign In"]) {
+//            NSLog(@"Sign In Pressed");
+//            //Check connection and present login if exists
+//            if ([connectionMGMT checkConnection]) {
+//                //[self.gameViewController isUserLoggedIn];
+//                [self.gameViewController authGameCenterLocalPlayer];
+//            } else {
+//                NSString *signInMessage = @"No network connection available. Internet is required to sign in. Please check your connection and try again.";
+//                [self noConnectionAlert:signInMessage];
+//            }
+//        } else {
+//            NSLog(@"Sign Out Pressed");
+//            [PFUser logOut];
+//            //[self.gameViewController isUserLoggedIn];
+//            signInLabel.text = signInString;
+//            self.achievementsLabel.fontColor = [SKColor darkGrayColor];
+//            _achievementsScene = [[AchievementsScene alloc] initWithSize:self.size];
+//        }
+//    }
     
     //Play button label
     if ([touchedLabel.name isEqual: @"playButtonLabel"]) {

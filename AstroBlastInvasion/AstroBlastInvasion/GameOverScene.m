@@ -126,6 +126,7 @@
                 [self reportScore:roundedScore];
             } else {
                 NSLog(@"NO Game Center!!");
+                [self noUserAlert];
             }
         }
         
