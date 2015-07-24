@@ -29,6 +29,7 @@
 @property (weak, nonatomic) GameViewController *gameViewController;
 @property (strong, nonatomic) SKColor *iOSBlueButtonColor;
 
--(void)setTextOfSignInLabel;
+//-(void)setTextOfSignInLabel;
+-(void)setAchievemetsLabelColor;
 
 @end

@@ -67,7 +67,7 @@
         }
         
         //Set Parse class name
-        parseClassName = @"userScore";
+//        parseClassName = @"userScore";
         
         //Set color similar to the blue of default iOS button
         iOSBlueButtonColor = [SKColor colorWithRed:0 green:0.478431 blue:1.0 alpha:1.0];

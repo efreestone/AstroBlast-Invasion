@@ -77,12 +77,14 @@
         if (viewController != nil) {
             NSLog(@"authenticationHandler IF");
             [self presentViewController:viewController animated:YES completion:nil];
+            
         } else {
             NSLog(@"authenticationHandler ELSE");
             if ([GKLocalPlayer localPlayer].authenticated) {
                 NSLog(@"localPlayer authenticated");
                 _gameCenterEnabled = YES;
-                
+                //Set achievements label to Blue
+                [mainMenuScene setAchievemetsLabelColor];
                 // Get the default leaderboard identifier.
                 [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error) {
                     if (error != nil) {
