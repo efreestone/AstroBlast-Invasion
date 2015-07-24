@@ -21,6 +21,7 @@
 #import "CustomPFSignUpViewController.h"
 #import "ConnectionManagement.h"
 #import "AchievementsScene.h"
+#import <GameKit/GameKit.h>
 
 @interface MainMenuScene ()
 
@@ -44,6 +45,7 @@
     BOOL connectionExists;
     NSString *signInString;
     PFQuery *scoresQuery;
+    NSUserDefaults *userDefaults;
 }
 
 //Synthesize for getters/setters
@@ -58,6 +60,8 @@
         }
         
         connectionExists = [connectionMGMT checkConnection];
+        
+        userDefaults = [NSUserDefaults standardUserDefaults];
         
         SKSpriteNode *backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"space"];
         backgroundImage.position = CGPointMake(self.size.width / 2, self.size.height / 2);
@@ -74,22 +78,22 @@
             labelGap = 45;
         }
         
-        float labelGapFromFont = fontSize / 2.65;
+//        float labelGapFromFont = fontSize / 2.65;
         
-        //Create and set sign in label. Will be modified to say Sign Out when user is logged in
-        signInLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
-        //signInLabel.text = signInString;
-        signInLabel.name = @"signInLabel";
-        signInLabel.fontColor = [SKColor whiteColor];
-        signInLabel.fontSize = fontSize / 2.65;
-        signInLabel.position = CGPointMake(labelGapFromFont, self.size.height - labelGap);
-        signInLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
-        
-        //Change sign in label to sign out if user is already logged in.
-        //This is to fix issue in iPhone sim when game is launched with user already logged in
-        [self setTextOfSignInLabel];
-
-        [self addChild:signInLabel];
+//        //Create and set sign in label. Will be modified to say Sign Out when user is logged in
+//        signInLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
+//        //signInLabel.text = signInString;
+//        signInLabel.name = @"signInLabel";
+//        signInLabel.fontColor = [SKColor whiteColor];
+//        signInLabel.fontSize = fontSize / 2.65;
+//        signInLabel.position = CGPointMake(labelGapFromFont, self.size.height - labelGap);
+//        signInLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+//        
+//        //Change sign in label to sign out if user is already logged in.
+//        //This is to fix issue in iPhone sim when game is launched with user already logged in
+//        [self setTextOfSignInLabel];
+//
+//        [self addChild:signInLabel];
         
         //Create and set message label
         SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
@@ -140,11 +144,13 @@
         self.achievementsLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
         self.achievementsLabel.text = @"Achievements";
         self.achievementsLabel.name = @"achievementsLabel";
-        if ([PFUser currentUser] && [connectionMGMT checkConnection]) {
-            self.achievementsLabel.fontColor = self.iOSBlueButtonColor;
-        } else {
-            self.achievementsLabel.fontColor = [SKColor darkGrayColor];
-        }
+//        if ([GKLocalPlayer localPlayer].isAuthenticated && [connectionMGMT checkConnection]) {
+//            self.achievementsLabel.fontColor = self.iOSBlueButtonColor;
+//        } else {
+//            self.achievementsLabel.fontColor = [SKColor darkGrayColor];
+//        }
+        self.achievementsLabel.fontColor = [SKColor darkGrayColor];
+        
         self.achievementsLabel.fontSize = fontSize;
         self.achievementsLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.1);
         [self addChild:self.achievementsLabel];
@@ -207,25 +213,30 @@
     return self;
 }
 
-//Query parse for scores
--(void)queryParseForScores {
-    scoresQuery = [PFQuery queryWithClassName:@"userScore"];
-    [scoresQuery orderByAscending:@"newScore"];
-    [scoresQuery findObjectsInBackgroundWithBlock:^(NSArray *scores, NSError *error) {
-        
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)scores.count);
-            
-            _leaderboardScene.scoresArray = [[NSArray alloc] initWithArray:scores];
-            //_leaderboardScene.scoresArray = scores;
-            [self runAction:[SKAction sequence:@[waitDuration, revealLeaderboardScene]]];
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+-(void)setAchievemetsLabelColor {
+    NSLog(@"Main Menu set achievements label color");
+    self.achievementsLabel.fontColor = self.iOSBlueButtonColor;
 }
+
+////Query parse for scores
+//-(void)queryParseForScores {
+//    scoresQuery = [PFQuery queryWithClassName:@"userScore"];
+//    [scoresQuery orderByAscending:@"newScore"];
+//    [scoresQuery findObjectsInBackgroundWithBlock:^(NSArray *scores, NSError *error) {
+//        
+//        if (!error) {
+//            // The find succeeded.
+//            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)scores.count);
+//            
+//            _leaderboardScene.scoresArray = [[NSArray alloc] initWithArray:scores];
+//            //_leaderboardScene.scoresArray = scores;
+//            [self runAction:[SKAction sequence:@[waitDuration, revealLeaderboardScene]]];
+//        } else {
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//    }];
+//}
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
@@ -233,15 +244,15 @@
     //Check if touch point is Try Again label
     SKNode *touchedLabel = [self nodeAtPoint:location];
     
-    //Sign in/out button
-    if ([touchedLabel.name isEqual:@"signInLabel"]) {
-        if ([signInLabel.text isEqualToString:@"Sign In"]) {
-            NSLog(@"Sign In Pressed");
-            
-        } else {
-            NSLog(@"Sign Out Pressed");
-        }
-    }
+//    //Sign in/out button
+//    if ([touchedLabel.name isEqual:@"signInLabel"]) {
+//        if ([signInLabel.text isEqualToString:@"Sign In"]) {
+//            NSLog(@"Sign In Pressed");
+//            
+//        } else {
+//            NSLog(@"Sign Out Pressed");
+//        }
+//    }
     
     //Play button label
     if ([touchedLabel.name isEqual: @"playButtonLabel"]) {
@@ -280,28 +291,28 @@
     //Check if touch point is Try Again label
     SKNode *touchedLabel = [self nodeAtPoint:location];
     
-    //Sign in/out button
-    if ([touchedLabel.name isEqual: @"signInLabel"]) {
-        
-        if ([signInLabel.text isEqualToString:@"Sign In"]) {
-            NSLog(@"Sign In Pressed");
-            //Check connection and present login if exists
-            if ([connectionMGMT checkConnection]) {
-                //[self.gameViewController isUserLoggedIn];
-                [self.gameViewController authGameCenterLocalPlayer];
-            } else {
-                NSString *signInMessage = @"No network connection available. Internet is required to sign in. Please check your connection and try again.";
-                [self noConnectionAlert:signInMessage];
-            }
-        } else {
-            NSLog(@"Sign Out Pressed");
-            [PFUser logOut];
-            [self.gameViewController isUserLoggedIn];
-            signInLabel.text = signInString;
-            self.achievementsLabel.fontColor = [SKColor darkGrayColor];
-            _achievementsScene = [[AchievementsScene alloc] initWithSize:self.size];
-        }
-    }
+//    //Sign in/out button
+//    if ([touchedLabel.name isEqual: @"signInLabel"]) {
+//        
+//        if ([signInLabel.text isEqualToString:@"Sign In"]) {
+//            NSLog(@"Sign In Pressed");
+//            //Check connection and present login if exists
+//            if ([connectionMGMT checkConnection]) {
+//                //[self.gameViewController isUserLoggedIn];
+//                [self.gameViewController authGameCenterLocalPlayer];
+//            } else {
+//                NSString *signInMessage = @"No network connection available. Internet is required to sign in. Please check your connection and try again.";
+//                [self noConnectionAlert:signInMessage];
+//            }
+//        } else {
+//            NSLog(@"Sign Out Pressed");
+//            [PFUser logOut];
+//            //[self.gameViewController isUserLoggedIn];
+//            signInLabel.text = signInString;
+//            self.achievementsLabel.fontColor = [SKColor darkGrayColor];
+//            _achievementsScene = [[AchievementsScene alloc] initWithSize:self.size];
+//        }
+//    }
     
     //Play button label
     if ([touchedLabel.name isEqual: @"playButtonLabel"]) {
@@ -323,18 +334,20 @@
     
     //Leaderboard button label
     if ([touchedLabel.name isEqual: @"leaderboardLabel"]) {
+        
         //[self queryParseForScores];
-        if ([connectionMGMT checkConnection] && [PFUser currentUser]) {
-            [_leaderboardScene queryParseForScores];
+        if ([connectionMGMT checkConnection] && [GKLocalPlayer localPlayer].isAuthenticated) {
+            //[_leaderboardScene queryParseForScores];
+            [_leaderboardScene querryGameCenterForLeaderboard];
             [self runAction:[SKAction sequence:@[waitDuration, revealLeaderboardScene]]];
         } else {
             self.leaderboardLabel.fontColor = self.iOSBlueButtonColor;
             NSString *noConnectString;
             //Check user and connection, notify and initial user defaults
-            if (![PFUser currentUser] && ![connectionMGMT checkConnection]) { //No connection and no user
+            if (![GKLocalPlayer localPlayer].isAuthenticated && ![connectionMGMT checkConnection]) { //No connection and no user
                 noConnectString = @"No user is signed in and no network connection is available. Only the local leaderboard will be shown if one is available";
             } else if (![PFUser currentUser]) { //No user logged in
-                noConnectString = @"No user is signed in. Only the local leaderboard will be shown if one is available";
+                noConnectString = @"No user is signed in. Only the local leaderboard will be shown if one is available. Please log in via Game Center if you would like to view the main leaderboard";
             //No conection
             } else {
                 noConnectString = @"No network connection is available. Only the local leaderboard will be shown if one is available";
@@ -349,11 +362,11 @@
     }
     
     if ([touchedLabel.name isEqual: @"achievementsLabel"]) {
-        if ([PFUser currentUser] && [connectionMGMT checkConnection]) {
-            [_achievementsScene queryParseForAchievements];
+        if ([GKLocalPlayer localPlayer].isAuthenticated && [connectionMGMT checkConnection]) {
+//            [_achievementsScene queryParseForAchievements];
             [self runAction:[SKAction sequence:@[waitDuration, revealAchievementsScene]]];
         } else {
-            NSString *achievementMessage = @"A user must be logged in and a network connection must be available to view the achievements. Please log in and/or check your internet connection before trying again";
+            NSString *achievementMessage = @"A user must be logged in and a network connection must be available to view the achievements. Please log in via Game Center and/or check your internet connection before trying again";
             [self noConnectionAlert:achievementMessage];
             self.achievementsLabel.fontColor = [SKColor darkGrayColor];
         }
@@ -368,12 +381,35 @@
     [connectionAlert show];
 } //noConnectionAlert close
 
--(void)setTextOfSignInLabel {
-    NSString *labelString = signInString;
-    if ([PFUser currentUser]) {
-        labelString = @"Sign Out";
-    }
-    signInLabel.text = labelString;
+//-(void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard{
+//    GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
+//    NSString *leaderboardID = [userDefaults objectForKey:@"leaderboardIdentifier"];
+//    
+//    gcViewController.gameCenterDelegate = self;
+//    
+//    if (shouldShowLeaderboard) {
+//        gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
+//        gcViewController.leaderboardIdentifier = leaderboardID;
+//    }
+//    else{
+//        gcViewController.viewState = GKGameCenterViewControllerStateAchievements;
+//    }
+//    
+//    //[self presentViewController:gcViewController animated:YES completion:nil];
+//
+//}
+
+-(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
+{
+    [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
 }
+
+//-(void)setTextOfSignInLabel {
+//    NSString *labelString = signInString;
+//    if ([PFUser currentUser]) {
+//        labelString = @"Sign Out";
+//    }
+//    signInLabel.text = labelString;
+//}
 
 @end
