@@ -755,11 +755,13 @@ static inline CGPoint rwNormalize(CGPoint a) {
         NSLog(@"Running total: %d", runningTotal);
         
         //Make sure user is logged in. Moves on to achievements if one is.
-        if (![PFUser currentUser]) {
+        if (![GKLocalPlayer localPlayer].authenticated) {
             //[_gameOverScene noUserAlert];
+            NSLog(@"Current User");
         } else {
             //Check connection before checking achievements
             if ([connectionMGMT checkConnection]) {
+                
                 if (didGetFlawless && !flawlessBOOL) {
                     NSLog(@"Flawless");
                     [_gameOverScene achievementReceived:flawlessKey withTitle:flawlessTitle];

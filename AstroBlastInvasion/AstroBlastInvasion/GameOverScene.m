@@ -354,26 +354,26 @@
 
 -(void)achievementReceived:(NSString *)key withTitle:(NSString *)title {
     //Add title of achievements to array for display
-    [achievementsArray addObject:title];
+    //[achievementsArray addObject:title];
     NSLog(@"Achievements: %@", achievementsArray);
-    _achievementReceived = YES;
-    PFQuery *achievementQuery = [PFQuery queryWithClassName:@"achievements"];
-    [achievementQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (!error) {
-            object[key] = @YES;
-            [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (succeeded) {
-                    NSLog(@"New achievement saved.");
-                } else {
-                    NSLog(@"%@", error);
-                    //Error alert
-                    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"An error occured trying to save. Please try again.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-                }
-            }];
-        } else {
-            NSLog(@"Error saving achievement");
-        }
-    }];
+    //_achievementReceived = YES;
+//    PFQuery *achievementQuery = [PFQuery queryWithClassName:@"achievements"];
+//    [achievementQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//        if (!error) {
+//            object[key] = @YES;
+//            [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (succeeded) {
+//                    NSLog(@"New achievement saved.");
+//                } else {
+//                    NSLog(@"%@", error);
+//                    //Error alert
+//                    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"An error occured trying to save. Please try again.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+//                }
+//            }];
+//        } else {
+//            NSLog(@"Error saving achievement");
+//        }
+//    }];
     //Change positions of existing labels to make room for the tableview
     messageLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.85);
     self.playAgainLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.7);
