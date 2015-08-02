@@ -42,6 +42,7 @@
     NSUserDefaults *userDefaults;
     
     NSMutableArray *achievementsArray;
+    NSMutableArray *achievementKeysArray;
     UITableView *achievementsTable;
     NSString *leaderboardID;
 }
@@ -59,6 +60,7 @@
         }
         
         achievementsArray = [[NSMutableArray alloc] init];
+        achievementKeysArray = [[NSMutableArray alloc] init];
         
         //Check device
         deviceType = @"iPad";
@@ -353,18 +355,29 @@
 }
 
 -(void)achievementReceived:(NSString *)key withTitle:(NSString *)title {
-    //Add title of achievements to array for display
+    //Double-check array and title exist for achievement
     if (achievementsArray == nil) {
         achievementsArray = [[NSMutableArray alloc] init];
     }
-    
     if (title == nil) {
         title = @"nil title";
     }
     
+    //Add title of achievements to array for display
     [achievementsArray addObject:title];
     NSLog(@"Achievements: %@", achievementsArray);
-    //_achievementReceived = YES;
+    _achievementReceived = YES;
+    
+    //Report achievement to Game Center
+    GKAchievement *achievementReceived = [[GKAchievement alloc] initWithIdentifier:key];
+    achievementReceived.percentComplete = 100;
+    [achievementKeysArray addObject:achievementReceived];
+    [GKAchievement reportAchievements:achievementKeysArray withCompletionHandler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"Achievement Error: %@", [error localizedDescription]);
+        }
+    }];
+    
 //    PFQuery *achievementQuery = [PFQuery queryWithClassName:@"achievements"];
 //    [achievementQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
 //        if (!error) {
