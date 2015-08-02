@@ -354,7 +354,15 @@
 
 -(void)achievementReceived:(NSString *)key withTitle:(NSString *)title {
     //Add title of achievements to array for display
-    //[achievementsArray addObject:title];
+    if (achievementsArray == nil) {
+        achievementsArray = [[NSMutableArray alloc] init];
+    }
+    
+    if (title == nil) {
+        title = @"nil title";
+    }
+    
+    [achievementsArray addObject:title];
     NSLog(@"Achievements: %@", achievementsArray);
     //_achievementReceived = YES;
 //    PFQuery *achievementQuery = [PFQuery queryWithClassName:@"achievements"];

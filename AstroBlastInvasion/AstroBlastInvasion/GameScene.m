@@ -143,16 +143,16 @@ static inline CGPoint rwNormalize(CGPoint a) {
         
         connectionMGMT = [[ConnectionManagement alloc] init];
         
-        if ([PFUser currentUser] && [connectionMGMT checkConnection]) {
-            [self queryParseForAchievements];
-            
+        if ([GKLocalPlayer localPlayer].isAuthenticated && [connectionMGMT checkConnection]) {
+            //[self queryParseForAchievements];
+        
             //Set keys for achievements
-            flawlessKey = @"flawless";
-            quickDrawKey = @"quickDraw";
-            halfDozenKey = @"halfDozen";
-            aDozenKey = @"aDozen";
-            dozenAndAHalfKey = @"dozenAndAHalf";
-            lateBloomerKey = @"lateBloomer";
+            flawlessKey = @"Flawless_Achievement";
+            quickDrawKey = @"Wheres_The_Fire";
+            halfDozenKey = @"Half_Dozen";
+            aDozenKey = @"One_Dozen";
+            dozenAndAHalfKey = @"Dozen_And_Half";
+            lateBloomerKey = @"Late_Bloomer";
             
             //Set titles
             flawlessTitle = @"Flawless Victory!";
