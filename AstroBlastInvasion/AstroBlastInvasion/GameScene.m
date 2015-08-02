@@ -144,7 +144,7 @@ static inline CGPoint rwNormalize(CGPoint a) {
         connectionMGMT = [[ConnectionManagement alloc] init];
         
         if ([GKLocalPlayer localPlayer].isAuthenticated && [connectionMGMT checkConnection]) {
-            //[self queryParseForAchievements];
+            [self queryGameCenterForAchievements];
         
             //Set keys for achievements
             flawlessKey = @"Flawless_Achievement";
@@ -850,6 +850,50 @@ static inline CGPoint rwNormalize(CGPoint a) {
 -(void)adjustTotalScoreBy:(int)pointsEarned {
     currentScore += pointsEarned;
     [self.scoreLabel setText:[NSString stringWithFormat:@"Score: %04d X%d", currentScore, currentMultiplier]];
+}
+
+//Query Game Center for achievements for the user
+-(void)queryGameCenterForAchievements {
+    [GKAchievement loadAchievementsWithCompletionHandler: ^(NSArray *scores, NSError *error) {
+        if (!error) {
+            NSLog(@"Achievements = %@", scores);
+            for (GKAchievement* achievement in scores) {
+                //Check for each achievement and set bools accordingly
+                //Flawless
+                if ([achievement.identifier isEqualToString:flawlessKey]) {
+                    flawlessBOOL = YES;
+                    NSLog(@"Flawless Exists");
+                }
+                //Quickdraw
+                if ([achievement.identifier isEqualToString:quickDrawKey]) {
+                    quickDrawBOOL = YES;
+                    NSLog(@"Quickdraw Exists");
+                }
+                //Half Dozen
+                if ([achievement.identifier isEqualToString:halfDozenKey]) {
+                    halfDozenBOOL = YES;
+                    NSLog(@"Half Dozen Exists");
+                }
+                //One Dozen
+                if ([achievement.identifier isEqualToString:aDozenKey]) {
+                    aDozenBool = YES;
+                    NSLog(@"One Dozen Exists");
+                }
+                //Dozen and Half
+                if ([achievement.identifier isEqualToString:dozenAndAHalfKey]) {
+                    dozenAndAHalfBOOL = YES;
+                    NSLog(@"Dozen and a Half Exists");
+                }
+                //Late Bloomer
+                if ([achievement.identifier isEqualToString:lateBloomerKey]) {
+                    lateBloomerBOOL = YES;
+                    NSLog(@"Late Bloomer Exists");
+                }
+            }
+        } else {
+            NSLog(@"Achievement Error: %@", [error localizedDescription]);
+        }
+    }];
 }
 
 //Query parse and get achievements for the user

@@ -371,6 +371,7 @@
     //Report achievement to Game Center
     GKAchievement *achievementReceived = [[GKAchievement alloc] initWithIdentifier:key];
     achievementReceived.percentComplete = 100;
+    //Add achievement to mutable array
     [achievementKeysArray addObject:achievementReceived];
     [GKAchievement reportAchievements:achievementKeysArray withCompletionHandler:^(NSError *error) {
         if (error != nil) {
