@@ -364,6 +364,7 @@
     if ([touchedLabel.name isEqual: @"achievementsLabel"]) {
         if ([GKLocalPlayer localPlayer].isAuthenticated && [connectionMGMT checkConnection]) {
 //            [_achievementsScene queryParseForAchievements];
+            [_achievementsScene queryGameCenterForAchievements];
             [self runAction:[SKAction sequence:@[waitDuration, revealAchievementsScene]]];
         } else {
             NSString *achievementMessage = @"A user must be logged in and a network connection must be available to view the achievements. Please log in via Game Center and/or check your internet connection before trying again";

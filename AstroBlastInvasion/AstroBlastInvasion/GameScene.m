@@ -862,32 +862,32 @@ static inline CGPoint rwNormalize(CGPoint a) {
                 //Flawless
                 if ([achievement.identifier isEqualToString:flawlessKey]) {
                     flawlessBOOL = YES;
-                    NSLog(@"Flawless Exists");
+                    //NSLog(@"Flawless Exists");
                 }
                 //Quickdraw
                 if ([achievement.identifier isEqualToString:quickDrawKey]) {
                     quickDrawBOOL = YES;
-                    NSLog(@"Quickdraw Exists");
+                    //NSLog(@"Quickdraw Exists");
                 }
                 //Half Dozen
                 if ([achievement.identifier isEqualToString:halfDozenKey]) {
                     halfDozenBOOL = YES;
-                    NSLog(@"Half Dozen Exists");
+                    //NSLog(@"Half Dozen Exists");
                 }
                 //One Dozen
                 if ([achievement.identifier isEqualToString:aDozenKey]) {
                     aDozenBool = YES;
-                    NSLog(@"One Dozen Exists");
+                    //NSLog(@"One Dozen Exists");
                 }
                 //Dozen and Half
                 if ([achievement.identifier isEqualToString:dozenAndAHalfKey]) {
                     dozenAndAHalfBOOL = YES;
-                    NSLog(@"Dozen and a Half Exists");
+                    //NSLog(@"Dozen and a Half Exists");
                 }
                 //Late Bloomer
                 if ([achievement.identifier isEqualToString:lateBloomerKey]) {
                     lateBloomerBOOL = YES;
-                    NSLog(@"Late Bloomer Exists");
+                    //NSLog(@"Late Bloomer Exists");
                 }
             }
         } else {
@@ -897,24 +897,24 @@ static inline CGPoint rwNormalize(CGPoint a) {
 }
 
 //Query parse and get achievements for the user
--(void)queryParseForAchievements {
-    //Query Parse to see if achievements exist for the user
-    PFQuery *achievementQuery = [PFQuery queryWithClassName:@"achievements"];
-    [achievementQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (!error) {
-            NSLog(@"Achievements exist");
-            flawlessBOOL = [object[@"flawless"] boolValue];
-            quickDrawBOOL = [object[@"quickDraw"] boolValue];
-            halfDozenBOOL = [object[@"halfDozen"] boolValue];
-            aDozenBool = [object[@"aDozen"] boolValue];
-            dozenAndAHalfBOOL = [object[@"dozenAndAHalf"] boolValue];
-            lateBloomerBOOL = [object[@"lateBloomer"] boolValue];
-            
-            //NSLog(@"Flawless = %@", flawlessBOOL ? @"Yes" : @"No");
-        } else {
-            NSLog(@"No achievements");
-        }
-    }];
-}
+//-(void)queryParseForAchievements {
+//    //Query Parse to see if achievements exist for the user
+//    PFQuery *achievementQuery = [PFQuery queryWithClassName:@"achievements"];
+//    [achievementQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//        if (!error) {
+//            NSLog(@"Achievements exist");
+//            flawlessBOOL = [object[@"flawless"] boolValue];
+//            quickDrawBOOL = [object[@"quickDraw"] boolValue];
+//            halfDozenBOOL = [object[@"halfDozen"] boolValue];
+//            aDozenBool = [object[@"aDozen"] boolValue];
+//            dozenAndAHalfBOOL = [object[@"dozenAndAHalf"] boolValue];
+//            lateBloomerBOOL = [object[@"lateBloomer"] boolValue];
+//            
+//            //NSLog(@"Flawless = %@", flawlessBOOL ? @"Yes" : @"No");
+//        } else {
+//            NSLog(@"No achievements");
+//        }
+//    }];
+//}
 
 @end
