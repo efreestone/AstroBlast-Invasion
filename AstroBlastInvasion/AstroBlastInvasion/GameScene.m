@@ -332,6 +332,7 @@ static inline CGPoint rwNormalize(CGPoint a) {
         [SKAction removeFromParent];
         didGetFlawless = NO;
     }];
+    SKAction *actionMoveDoneShield = [SKAction removeFromParent];
     
     //Create actions for flashing screen
     SKAction *flashDelay = [SKAction waitForDuration:0.025];
@@ -369,11 +370,12 @@ static inline CGPoint rwNormalize(CGPoint a) {
             [self.view presentScene:_gameOverScene transition: revealGameLost];
         }
     }];
-    //Make sure spaceship exists
+    //Make sure spaceship exists and run actions
     if (enemyShipNode != nil) {
         [enemyShipNode runAction:[SKAction sequence:@[actionMove, loseAction, actionMoveDone]]];
         if (shipsSpawned == 5) {
-            [shipShieldNode runAction:[SKAction sequence:@[actionMove, actionMoveDone]]];
+            //Run shield actions with ship node
+            [shipShieldNode runAction:[SKAction sequence:@[actionMove, actionMoveDoneShield]]];
         }
     } else {
         NSLog(@"enemyShipNode NIL!");
