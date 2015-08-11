@@ -17,7 +17,6 @@
 
 @interface LeaderboardScene : SKScene <UITableViewDelegate, UITableViewDataSource>
 
--(void)queryParseForScores;
 -(void)queryUserDefaults;
 -(void)querryGameCenterForLeaderboard;
 

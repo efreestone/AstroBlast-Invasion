@@ -17,8 +17,6 @@
 #import "HowToScene.h"
 #import "AboutScene.h"
 #import "LeaderboardScene.h"
-#import "CustomPFLoginViewController.h"
-#import "CustomPFSignUpViewController.h"
 #import "ConnectionManagement.h"
 #import "AchievementsScene.h"
 #import <GameKit/GameKit.h>
@@ -44,12 +42,8 @@
     UIViewController *viewController;
     BOOL connectionExists;
     NSString *signInString;
-    PFQuery *scoresQuery;
     NSUserDefaults *userDefaults;
 }
-
-//Synthesize for getters/setters
-@synthesize signInLabel;
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
@@ -77,23 +71,6 @@
             fontSize = 75;
             labelGap = 45;
         }
-        
-//        float labelGapFromFont = fontSize / 2.65;
-        
-//        //Create and set sign in label. Will be modified to say Sign Out when user is logged in
-//        signInLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
-//        //signInLabel.text = signInString;
-//        signInLabel.name = @"signInLabel";
-//        signInLabel.fontColor = [SKColor whiteColor];
-//        signInLabel.fontSize = fontSize / 2.65;
-//        signInLabel.position = CGPointMake(labelGapFromFont, self.size.height - labelGap);
-//        signInLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
-//        
-//        //Change sign in label to sign out if user is already logged in.
-//        //This is to fix issue in iPhone sim when game is launched with user already logged in
-//        [self setTextOfSignInLabel];
-//
-//        [self addChild:signInLabel];
         
         //Create and set message label
         SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
@@ -144,11 +121,6 @@
         self.achievementsLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
         self.achievementsLabel.text = @"Achievements";
         self.achievementsLabel.name = @"achievementsLabel";
-//        if ([GKLocalPlayer localPlayer].isAuthenticated && [connectionMGMT checkConnection]) {
-//            self.achievementsLabel.fontColor = self.iOSBlueButtonColor;
-//        } else {
-//            self.achievementsLabel.fontColor = [SKColor darkGrayColor];
-//        }
         self.achievementsLabel.fontColor = [SKColor darkGrayColor];
         
         self.achievementsLabel.fontSize = fontSize;
@@ -218,41 +190,11 @@
     self.achievementsLabel.fontColor = self.iOSBlueButtonColor;
 }
 
-////Query parse for scores
-//-(void)queryParseForScores {
-//    scoresQuery = [PFQuery queryWithClassName:@"userScore"];
-//    [scoresQuery orderByAscending:@"newScore"];
-//    [scoresQuery findObjectsInBackgroundWithBlock:^(NSArray *scores, NSError *error) {
-//        
-//        if (!error) {
-//            // The find succeeded.
-//            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)scores.count);
-//            
-//            _leaderboardScene.scoresArray = [[NSArray alloc] initWithArray:scores];
-//            //_leaderboardScene.scoresArray = scores;
-//            [self runAction:[SKAction sequence:@[waitDuration, revealLeaderboardScene]]];
-//        } else {
-//            // Log details of the failure
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//        }
-//    }];
-//}
-
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInNode:self];
     //Check if touch point is Try Again label
     SKNode *touchedLabel = [self nodeAtPoint:location];
-    
-//    //Sign in/out button
-//    if ([touchedLabel.name isEqual:@"signInLabel"]) {
-//        if ([signInLabel.text isEqualToString:@"Sign In"]) {
-//            NSLog(@"Sign In Pressed");
-//            
-//        } else {
-//            NSLog(@"Sign Out Pressed");
-//        }
-//    }
     
     //Play button label
     if ([touchedLabel.name isEqual: @"playButtonLabel"]) {
@@ -291,29 +233,6 @@
     //Check if touch point is Try Again label
     SKNode *touchedLabel = [self nodeAtPoint:location];
     
-//    //Sign in/out button
-//    if ([touchedLabel.name isEqual: @"signInLabel"]) {
-//        
-//        if ([signInLabel.text isEqualToString:@"Sign In"]) {
-//            NSLog(@"Sign In Pressed");
-//            //Check connection and present login if exists
-//            if ([connectionMGMT checkConnection]) {
-//                //[self.gameViewController isUserLoggedIn];
-//                [self.gameViewController authGameCenterLocalPlayer];
-//            } else {
-//                NSString *signInMessage = @"No network connection available. Internet is required to sign in. Please check your connection and try again.";
-//                [self noConnectionAlert:signInMessage];
-//            }
-//        } else {
-//            NSLog(@"Sign Out Pressed");
-//            [PFUser logOut];
-//            //[self.gameViewController isUserLoggedIn];
-//            signInLabel.text = signInString;
-//            self.achievementsLabel.fontColor = [SKColor darkGrayColor];
-//            _achievementsScene = [[AchievementsScene alloc] initWithSize:self.size];
-//        }
-//    }
-    
     //Play button label
     if ([touchedLabel.name isEqual: @"playButtonLabel"]) {
         [self runAction:[SKAction sequence:@[waitDuration, revealGameScene]]];
@@ -335,9 +254,8 @@
     //Leaderboard button label
     if ([touchedLabel.name isEqual: @"leaderboardLabel"]) {
         
-        //[self queryParseForScores];
         if ([connectionMGMT checkConnection] && [GKLocalPlayer localPlayer].isAuthenticated) {
-            //[_leaderboardScene queryParseForScores];
+            //Querry Game Center for leaderboard scores before showing scene
             [_leaderboardScene querryGameCenterForLeaderboard];
             [self runAction:[SKAction sequence:@[waitDuration, revealLeaderboardScene]]];
         } else {
@@ -346,7 +264,7 @@
             //Check user and connection, notify and initial user defaults
             if (![GKLocalPlayer localPlayer].isAuthenticated && ![connectionMGMT checkConnection]) { //No connection and no user
                 noConnectString = @"No user is signed in and no network connection is available. Only the local leaderboard will be shown if one is available";
-            } else if (![PFUser currentUser]) { //No user logged in
+            } else if (![GKLocalPlayer localPlayer].isAuthenticated) { //No user logged in
                 noConnectString = @"No user is signed in. Only the local leaderboard will be shown if one is available. Please log in via Game Center if you would like to view the main leaderboard";
             //No conection
             } else {
@@ -363,7 +281,7 @@
     
     if ([touchedLabel.name isEqual: @"achievementsLabel"]) {
         if ([GKLocalPlayer localPlayer].isAuthenticated && [connectionMGMT checkConnection]) {
-//            [_achievementsScene queryParseForAchievements];
+            //Querry Game Center for achievements before showing scene
             [_achievementsScene queryGameCenterForAchievements];
             [self runAction:[SKAction sequence:@[waitDuration, revealAchievementsScene]]];
         } else {
@@ -381,36 +299,5 @@
     //Show alert
     [connectionAlert show];
 } //noConnectionAlert close
-
-//-(void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard{
-//    GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
-//    NSString *leaderboardID = [userDefaults objectForKey:@"leaderboardIdentifier"];
-//    
-//    gcViewController.gameCenterDelegate = self;
-//    
-//    if (shouldShowLeaderboard) {
-//        gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
-//        gcViewController.leaderboardIdentifier = leaderboardID;
-//    }
-//    else{
-//        gcViewController.viewState = GKGameCenterViewControllerStateAchievements;
-//    }
-//    
-//    //[self presentViewController:gcViewController animated:YES completion:nil];
-//
-//}
-
--(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
-{
-    [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
-}
-
-//-(void)setTextOfSignInLabel {
-//    NSString *labelString = signInString;
-//    if ([PFUser currentUser]) {
-//        labelString = @"Sign Out";
-//    }
-//    signInLabel.text = labelString;
-//}
 
 @end

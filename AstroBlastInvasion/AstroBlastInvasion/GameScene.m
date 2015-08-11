@@ -531,11 +531,13 @@ static inline CGPoint rwNormalize(CGPoint a) {
             self.lastUpdateTimeInterval = currentTime;
         }
         
+        //Spawn multiplier asteroid every 5 seconds
         if (asteroidTimeSinceUpdate > 5) {
             asteroidTimeSinceUpdate = 5.0 / 60.0;
             self.asteroidLastSpawnTimeInterval = currentTime;
         }
         
+        //Spawn extra life asteroid every 7 seconds
         if (extraLifeTimeSinceUpdate > 7) {
             extraLifeTimeSinceUpdate = 7.0 / 60.0;
             self.extraLifeLastSpawnTimeInterval = currentTime;
@@ -763,7 +765,7 @@ static inline CGPoint rwNormalize(CGPoint a) {
         } else {
             //Check connection before checking achievements
             if ([connectionMGMT checkConnection]) {
-                
+                //Check if achievement were earned and have not already been awarded
                 if (didGetFlawless && !flawlessBOOL) {
                     NSLog(@"Flawless");
                     [_gameOverScene achievementReceived:flawlessKey withTitle:flawlessTitle];
@@ -897,26 +899,5 @@ static inline CGPoint rwNormalize(CGPoint a) {
         }
     }];
 }
-
-//Query parse and get achievements for the user
-//-(void)queryParseForAchievements {
-//    //Query Parse to see if achievements exist for the user
-//    PFQuery *achievementQuery = [PFQuery queryWithClassName:@"achievements"];
-//    [achievementQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//        if (!error) {
-//            NSLog(@"Achievements exist");
-//            flawlessBOOL = [object[@"flawless"] boolValue];
-//            quickDrawBOOL = [object[@"quickDraw"] boolValue];
-//            halfDozenBOOL = [object[@"halfDozen"] boolValue];
-//            aDozenBool = [object[@"aDozen"] boolValue];
-//            dozenAndAHalfBOOL = [object[@"dozenAndAHalf"] boolValue];
-//            lateBloomerBOOL = [object[@"lateBloomer"] boolValue];
-//            
-//            //NSLog(@"Flawless = %@", flawlessBOOL ? @"Yes" : @"No");
-//        } else {
-//            NSLog(@"No achievements");
-//        }
-//    }];
-//}
 
 @end

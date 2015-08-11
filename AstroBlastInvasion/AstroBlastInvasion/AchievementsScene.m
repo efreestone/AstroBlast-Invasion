@@ -224,29 +224,6 @@
     }];
 }
 
-//-(void)queryParseForAchievements {
-//    //Query Parse to see if achievements exist for the user
-//    PFQuery *achievementQuery = [PFQuery queryWithClassName:@"achievements"];
-//    [achievementQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//        if (!error) {
-//            NSLog(@"Achievements exist");
-//            //NSLog(@"Time created %@", [object valueForKey:@"createdAt"]);
-//            flawlessBOOL = [object[@"flawless"] boolValue];
-//            quickDrawBOOL = [object[@"quickDraw"] boolValue];
-//            halfDozenBOOL = [object[@"halfDozen"] boolValue];
-//            aDozenBool = [object[@"aDozen"] boolValue];
-//            dozenAndAHalfBOOL = [object[@"dozenAndAHalf"] boolValue];
-//            lateBloomerBOOL = [object[@"lateBloomer"] boolValue];
-//            
-//            [self setLabelColors];
-//            
-//            NSLog(@"Flawless = %@", flawlessBOOL ? @"Yes" : @"No");
-//        } else {
-//            NSLog(@"No achievements");
-//        }
-//    }];
-//}
-
 //Set label color to green for achievements received
 -(void)setLabelColors {
     if (flawlessBOOL) {

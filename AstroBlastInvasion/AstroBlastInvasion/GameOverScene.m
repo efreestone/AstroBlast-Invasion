@@ -15,7 +15,6 @@
 #import "GameScene.h"
 #import "ConnectionManagement.h"
 #import "Reachability.h"
-#import <Parse/Parse.h>
 #import <Social/Social.h>
 #import <GameKit/GameKit.h>
 
@@ -35,7 +34,6 @@
     int roundedScore;
     NSString *soundFileName;
     NSString *messageString;
-    NSString *parseClassName;
     NSString *deviceType;
     NSString *localUserName;
     NSString *usernameString;
@@ -67,9 +65,6 @@
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
             deviceType = @"iPhone";
         }
-        
-        //Set Parse class name
-//        parseClassName = @"userScore";
         
         //Set color similar to the blue of default iOS button
         iOSBlueButtonColor = [SKColor colorWithRed:0 green:0.478431 blue:1.0 alpha:1.0];
@@ -106,19 +101,6 @@
             userDefaults = [NSUserDefaults standardUserDefaults];
             
             //NSLog(@"Total: %d", _gameViewController.totalOfEnemiesDestroyed);
-            
-//            if ([PFUser currentUser]) {
-//                [self saveScoreToParse:roundedScore];
-//                //Check connection and change twitter button accordingly
-//                if (![connectionMGMT checkConnection]) {
-//                    self.twitterLabel.fontColor = [SKColor grayColor];
-//                } else {
-//                    self.twitterLabel.name = @"twitterLabel";
-//                }
-//            } //else {
-//                userDefaults = [NSUserDefaults standardUserDefaults];
-//                self.twitterLabel.fontColor = [SKColor grayColor];
-//            }
             
             leaderboardID = [userDefaults objectForKey:@"leaderboardIdentifier"];
             
@@ -244,37 +226,7 @@
     }
 }
 
-////Create and save a new score object to Parse
-//-(void)saveScoreToParse:(int)newScore {
-//    //Grab user and create and save PFObject
-//    PFUser *user = [PFUser currentUser];
-//    usernameString = [user objectForKey:@"username"];
-//    PFObject *newScoreObject = [PFObject objectWithClassName:parseClassName];
-//    newScoreObject[@"scoreUserName"] = usernameString;
-//    newScoreObject[@"newScore"] = [NSNumber numberWithInt:newScore];
-//    newScoreObject[@"deviceType"] = deviceType;
-//    
-//    //Check connection and save locally if it doesn't exist
-//    if (![connectionMGMT checkConnection]) {
-//        NSLog(@"No connection, saved locally");
-//        NSString *alertMessage = @"No connection is available so the score will only be saved locally.";
-//        userDefaults = [NSUserDefaults standardUserDefaults];
-//        [self noConnectionAlert:alertMessage];
-//        [self saveLocalScore:usernameString];
-//    } else {
-//        //NSLog(@"Connection exists, save to Parse");
-//        [newScoreObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//            if (succeeded) {
-//                NSLog(@"New score saved.");
-//            } else {
-//                NSLog(@"%@", error);
-//                //Error alert
-//                [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"An error occured trying to save. Please try again.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-//            }
-//        }];
-//    }
-//}
-
+//Report score to Game Center
 -(void)reportScore:(int)newScore {
     NSLog(@"report score");
     GKScore *score = [[GKScore alloc] initWithLeaderboardIdentifier:leaderboardID];
@@ -303,6 +255,7 @@
     }
 }
 
+//Save scores locally if no user is signed in
 -(void)saveLocalScore:(NSString *)enteredUserName {
     NSLog(@"Save local: %@", enteredUserName);
     NSMutableArray *localScoresArray;
@@ -379,23 +332,6 @@
         }
     }];
     
-//    PFQuery *achievementQuery = [PFQuery queryWithClassName:@"achievements"];
-//    [achievementQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//        if (!error) {
-//            object[key] = @YES;
-//            [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                if (succeeded) {
-//                    NSLog(@"New achievement saved.");
-//                } else {
-//                    NSLog(@"%@", error);
-//                    //Error alert
-//                    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"An error occured trying to save. Please try again.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-//                }
-//            }];
-//        } else {
-//            NSLog(@"Error saving achievement");
-//        }
-//    }];
     //Change positions of existing labels to make room for the tableview
     messageLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.85);
     self.playAgainLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.7);

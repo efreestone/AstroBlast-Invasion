@@ -17,7 +17,6 @@
 @implementation LeaderboardScene {
     SKColor *iOSBlueButtonColor;
     CustomTableViewCell *customCell;
-    PFQuery *scoresQuery;
     NSMutableArray *allScoresArray;
     NSMutableArray *iPadArray;
     NSMutableArray *iPhoneArray;
@@ -45,8 +44,6 @@
         iPhoneArray = [[NSMutableArray alloc] init];
         iPadArray = [[NSMutableArray alloc] init];
         
-//        CGFloat deviceWidth = self.size.width;
-        
         //Create and set message label
         self.backLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
         self.backLabel.text = @"Menu";
@@ -56,36 +53,6 @@
         float backLabelPlacement = self.backLabel.frame.size.height + fontSize;
         self.backLabel.position = CGPointMake(backLabelPlacement, self.size.height - (fontSize * 1.25));
         [self addChild:self.backLabel];
-        
-//        //Create and set all label
-//        self.allLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
-//        self.allLabel.text = @"All Scores";
-//        self.allLabel.name = @"allLabel";
-//        self.allLabel.fontColor = [SKColor grayColor];
-//        self.allLabel.fontSize = fontSize;
-//        float allLabelPlacement = deviceWidth * 0.25f;
-//        self.allLabel.position = CGPointMake(allLabelPlacement, self.size.height - (fontSize * 1.25));
-//        [self addChild:self.allLabel];
-//        
-//        //Create and set iPone label
-//        self.iPhoneLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
-//        self.iPhoneLabel.text = @"iPhone Only";
-//        self.iPhoneLabel.name = @"iPhoneLabel";
-//        self.iPhoneLabel.fontColor = iOSBlueButtonColor;
-//        self.iPhoneLabel.fontSize = fontSize;
-//        float iPhoneLabelPlacement = deviceWidth * 0.5f;
-//        self.iPhoneLabel.position = CGPointMake(iPhoneLabelPlacement, self.size.height - (fontSize * 1.25));
-//        [self addChild:self.iPhoneLabel];
-//        
-//        //Create and set iPad label
-//        self.iPadLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
-//        self.iPadLabel.text = @"iPad Only";
-//        self.iPadLabel.name = @"iPadLabel";
-//        self.iPadLabel.fontColor = iOSBlueButtonColor;
-//        self.iPadLabel.fontSize = fontSize;
-//        float iPadLabelPlacement = deviceWidth * 0.75f;
-//        self.iPadLabel.position = CGPointMake(iPadLabelPlacement, self.size.height - (fontSize * 1.25));
-//        [self addChild:self.iPadLabel];
     }
     return self;
 }
@@ -113,26 +80,6 @@
     allScoresArray = sortedScoresArray;
     self.scoresArray = sortedScoresArray;
     [_leaderboardTableView reloadData];
-}
-
-//Query Parse for scores and pass array to tableview. Called from touch of Leaderboard label on menu
--(void)queryParseForScores {
-    scoresQuery = [PFQuery queryWithClassName:@"userScore"];
-    [scoresQuery orderByDescending:@"newScore"];
-    [scoresQuery findObjectsInBackgroundWithBlock:^(NSArray *scores, NSError *error) {
-        if (!error) {
-            //The find succeeded. Pass the array and reload the tableview
-            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)scores.count);
-            self.scoresArray = scores;
-            //Save a copy of the array for filtering
-            allScoresArray = (NSMutableArray *)scores;
-            //NSLog(@"%@", scoresQuery);
-            [_leaderboardTableView reloadData];
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
 }
 
 //Use didMove to set up tableview
@@ -192,60 +139,60 @@
         return;
     }
     
-    //All button
-    if ([touchedLabel.name isEqual: @"allLabel"]) {
-        self.allLabel.fontColor = [SKColor grayColor];
-        //Clear mutable array
-        [allScoresArray removeAllObjects];
-        //Toggle other label colors
-        self.iPadLabel.fontColor = iOSBlueButtonColor;
-        self.iPhoneLabel.fontColor = iOSBlueButtonColor;
-        
-        //Reset all array to original score array and reload
-        allScoresArray = (NSMutableArray *)self.scoresArray;
-        [_leaderboardTableView reloadData];
-        return;
-    }
-    
-    //iPhone button
-    if ([touchedLabel.name isEqual: @"iPhoneLabel"]) {
-        self.iPhoneLabel.fontColor = [SKColor grayColor];
-        //Clear mutable array
-        [iPhoneArray removeAllObjects];
-        for (PFObject *object in self.scoresArray) {
-            if ([[object valueForKey:@"deviceType"] isEqualToString:@"iPhone"]) {
-                [iPhoneArray addObject:object];
-            }
-        }
-        //Toggle other label colors
-        self.allLabel.fontColor = iOSBlueButtonColor;
-        self.iPadLabel.fontColor = iOSBlueButtonColor;
-        
-        //Set all array to iphone only array and reload
-        allScoresArray = iPhoneArray;
-        [_leaderboardTableView reloadData];
-        return;
-    }
-    
-    //iPad button
-    if ([touchedLabel.name isEqual: @"iPadLabel"]) {
-        self.iPadLabel.fontColor = [SKColor grayColor];
-        //Clear mutable array
-        [iPadArray removeAllObjects];
-        for (PFObject *object in self.scoresArray) {
-            if ([[object valueForKey:@"deviceType"] isEqualToString:@"iPad"]) {
-                [iPadArray addObject:object];
-            }
-        }
-        //Toggle other label colors
-        self.allLabel.fontColor = iOSBlueButtonColor;
-        self.iPhoneLabel.fontColor = iOSBlueButtonColor;
-        
-        //Set all array to iPad only array and reload
-        allScoresArray = iPadArray;
-        [_leaderboardTableView reloadData];
-        return;
-    }
+//    //All button
+//    if ([touchedLabel.name isEqual: @"allLabel"]) {
+//        self.allLabel.fontColor = [SKColor grayColor];
+//        //Clear mutable array
+//        [allScoresArray removeAllObjects];
+//        //Toggle other label colors
+//        self.iPadLabel.fontColor = iOSBlueButtonColor;
+//        self.iPhoneLabel.fontColor = iOSBlueButtonColor;
+//        
+//        //Reset all array to original score array and reload
+//        allScoresArray = (NSMutableArray *)self.scoresArray;
+//        [_leaderboardTableView reloadData];
+//        return;
+//    }
+//    
+//    //iPhone button
+//    if ([touchedLabel.name isEqual: @"iPhoneLabel"]) {
+//        self.iPhoneLabel.fontColor = [SKColor grayColor];
+//        //Clear mutable array
+//        [iPhoneArray removeAllObjects];
+//        for (PFObject *object in self.scoresArray) {
+//            if ([[object valueForKey:@"deviceType"] isEqualToString:@"iPhone"]) {
+//                [iPhoneArray addObject:object];
+//            }
+//        }
+//        //Toggle other label colors
+//        self.allLabel.fontColor = iOSBlueButtonColor;
+//        self.iPadLabel.fontColor = iOSBlueButtonColor;
+//        
+//        //Set all array to iphone only array and reload
+//        allScoresArray = iPhoneArray;
+//        [_leaderboardTableView reloadData];
+//        return;
+//    }
+//    
+//    //iPad button
+//    if ([touchedLabel.name isEqual: @"iPadLabel"]) {
+//        self.iPadLabel.fontColor = [SKColor grayColor];
+//        //Clear mutable array
+//        [iPadArray removeAllObjects];
+//        for (PFObject *object in self.scoresArray) {
+//            if ([[object valueForKey:@"deviceType"] isEqualToString:@"iPad"]) {
+//                [iPadArray addObject:object];
+//            }
+//        }
+//        //Toggle other label colors
+//        self.allLabel.fontColor = iOSBlueButtonColor;
+//        self.iPhoneLabel.fontColor = iOSBlueButtonColor;
+//        
+//        //Set all array to iPad only array and reload
+//        allScoresArray = iPadArray;
+//        [_leaderboardTableView reloadData];
+//        return;
+//    }
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -269,23 +216,23 @@
         self.iPadLabel.fontColor = iOSBlueButtonColor;
     }
     
-    //All button
-    if ([touchedLabel.name isEqual: @"allLabel"]) {
-        //self.allLabel.fontColor = iOSBlueButtonColor;
-        return;
-    }
-    
-    //iPhone button
-    if ([touchedLabel.name isEqual: @"iPhoneLabel"]) {
-        //self.iPhoneLabel.fontColor = iOSBlueButtonColor;
-        return;
-    }
-    
-    //iPad button
-    if ([touchedLabel.name isEqual: @"iPadLabel"]) {
-        //self.iPadLabel.fontColor = iOSBlueButtonColor;
-        return;
-    }
+//    //All button
+//    if ([touchedLabel.name isEqual: @"allLabel"]) {
+//        //self.allLabel.fontColor = iOSBlueButtonColor;
+//        return;
+//    }
+//    
+//    //iPhone button
+//    if ([touchedLabel.name isEqual: @"iPhoneLabel"]) {
+//        //self.iPhoneLabel.fontColor = iOSBlueButtonColor;
+//        return;
+//    }
+//    
+//    //iPad button
+//    if ([touchedLabel.name isEqual: @"iPadLabel"]) {
+//        //self.iPadLabel.fontColor = iOSBlueButtonColor;
+//        return;
+//    }
 }
 
 #pragma mark - TableView Methods
@@ -301,14 +248,6 @@
     NSString *scoreString = gkScore.formattedValue;
     
     NSLog(@"User Name = %@", scoreUserName);
-    
-//    NSString *scoreUserName = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"alias"];
-//    NSNumber *scoreNumber = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"formattedValue"];
-//    NSString *scoreString = [scoreNumber stringValue];
-    //NSString *deviceType = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"deviceType"];
-    
-    //Not reusing cells to maintain sort order
-    //static NSString *cellId = @"Cell";
     
     customCell = [tableView dequeueReusableCellWithIdentifier:nil];
     tableView.rowHeight = 44;
@@ -333,10 +272,12 @@
     return customCell;
 }
 
+//Querry Game Center for leaderboard
 -(void)querryGameCenterForLeaderboard {
     NSString *leaderboardID = [userDefaults objectForKey:@"leaderboardIdentifier"];
     GKLeaderboard *leaderboardRequest = [[GKLeaderboard alloc] init];
     
+    //Make sure leaderboard exists before requesting scores and loading
     if (leaderboardRequest != nil) {
         leaderboardRequest.identifier = leaderboardID;
         leaderboardRequest.playerScope = GKLeaderboardPlayerScopeGlobal;
@@ -345,7 +286,6 @@
         [leaderboardRequest loadScoresWithCompletionHandler: ^(NSArray *scores, NSError *error) {
             if (!error) {
                 //NSLog(@"Scores = %@", scores);
-                
                 allScoresArray = (NSMutableArray*) scores;
                 [_leaderboardTableView reloadData];
             } else {

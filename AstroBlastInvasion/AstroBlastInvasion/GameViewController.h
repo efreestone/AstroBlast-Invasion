@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
-#import <Parse/Parse.h>
-#import <ParseUI/ParseUI.h>
 
-@interface GameViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface GameViewController : UIViewController
 
 //-(void)isUserLoggedIn;
 -(void)authGameCenterLocalPlayer;
