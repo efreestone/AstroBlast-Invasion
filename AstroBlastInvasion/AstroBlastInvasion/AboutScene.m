@@ -90,7 +90,6 @@
     if ([touchedLabel.name isEqual: @"backLabel"]) {
         //Change label back to iOS blue
         self.backLabel.fontColor = iOSBlueButtonColor;
-        //_mainMenuScene = [[MainMenuScene alloc] initWithSize:self.size];
         _mainMenuScene.gameViewController = _gameViewController;
         SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
         [self.view presentScene:_mainMenuScene transition: reveal];

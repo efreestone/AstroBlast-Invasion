@@ -17,8 +17,6 @@
 #import "HowToScene.h"
 #import "AboutScene.h"
 #import "LeaderboardScene.h"
-#import "CustomPFLoginViewController.h"
-#import "CustomPFSignUpViewController.h"
 #import "ConnectionManagement.h"
 #import "AchievementsScene.h"
 #import <GameKit/GameKit.h>
@@ -44,12 +42,12 @@
     UIViewController *viewController;
     BOOL connectionExists;
     NSString *signInString;
+<<<<<<< HEAD
     PFQuery *scoresQuery;
+=======
+>>>>>>> workingbranch
     NSUserDefaults *userDefaults;
 }
-
-//Synthesize for getters/setters
-@synthesize signInLabel;
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
@@ -78,6 +76,7 @@
             labelGap = 45;
         }
         
+<<<<<<< HEAD
 //        float labelGapFromFont = fontSize / 2.65;
         
 //        //Create and set sign in label. Will be modified to say Sign Out when user is logged in
@@ -95,6 +94,8 @@
 //
 //        [self addChild:signInLabel];
         
+=======
+>>>>>>> workingbranch
         //Create and set message label
         SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
         titleLabel.text = @"AstroBlast Invasion";
@@ -144,11 +145,14 @@
         self.achievementsLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
         self.achievementsLabel.text = @"Achievements";
         self.achievementsLabel.name = @"achievementsLabel";
+<<<<<<< HEAD
 //        if ([GKLocalPlayer localPlayer].isAuthenticated && [connectionMGMT checkConnection]) {
 //            self.achievementsLabel.fontColor = self.iOSBlueButtonColor;
 //        } else {
 //            self.achievementsLabel.fontColor = [SKColor darkGrayColor];
 //        }
+=======
+>>>>>>> workingbranch
         self.achievementsLabel.fontColor = [SKColor darkGrayColor];
         
         self.achievementsLabel.fontSize = fontSize;
@@ -244,6 +248,7 @@
     //Check if touch point is Try Again label
     SKNode *touchedLabel = [self nodeAtPoint:location];
     
+<<<<<<< HEAD
 //    //Sign in/out button
 //    if ([touchedLabel.name isEqual:@"signInLabel"]) {
 //        if ([signInLabel.text isEqualToString:@"Sign In"]) {
@@ -254,6 +259,8 @@
 //        }
 //    }
     
+=======
+>>>>>>> workingbranch
     //Play button label
     if ([touchedLabel.name isEqual: @"playButtonLabel"]) {
         self.playButtonLabel.fontColor = [SKColor grayColor];
@@ -291,6 +298,7 @@
     //Check if touch point is Try Again label
     SKNode *touchedLabel = [self nodeAtPoint:location];
     
+<<<<<<< HEAD
 //    //Sign in/out button
 //    if ([touchedLabel.name isEqual: @"signInLabel"]) {
 //        
@@ -314,6 +322,8 @@
 //        }
 //    }
     
+=======
+>>>>>>> workingbranch
     //Play button label
     if ([touchedLabel.name isEqual: @"playButtonLabel"]) {
         [self runAction:[SKAction sequence:@[waitDuration, revealGameScene]]];
@@ -335,9 +345,14 @@
     //Leaderboard button label
     if ([touchedLabel.name isEqual: @"leaderboardLabel"]) {
         
+<<<<<<< HEAD
         //[self queryParseForScores];
         if ([connectionMGMT checkConnection] && [GKLocalPlayer localPlayer].isAuthenticated) {
             //[_leaderboardScene queryParseForScores];
+=======
+        if ([connectionMGMT checkConnection] && [GKLocalPlayer localPlayer].isAuthenticated) {
+            //Querry Game Center for leaderboard scores before showing scene
+>>>>>>> workingbranch
             [_leaderboardScene querryGameCenterForLeaderboard];
             [self runAction:[SKAction sequence:@[waitDuration, revealLeaderboardScene]]];
         } else {
@@ -346,7 +361,11 @@
             //Check user and connection, notify and initial user defaults
             if (![GKLocalPlayer localPlayer].isAuthenticated && ![connectionMGMT checkConnection]) { //No connection and no user
                 noConnectString = @"No user is signed in and no network connection is available. Only the local leaderboard will be shown if one is available";
+<<<<<<< HEAD
             } else if (![PFUser currentUser]) { //No user logged in
+=======
+            } else if (![GKLocalPlayer localPlayer].isAuthenticated) { //No user logged in
+>>>>>>> workingbranch
                 noConnectString = @"No user is signed in. Only the local leaderboard will be shown if one is available. Please log in via Game Center if you would like to view the main leaderboard";
             //No conection
             } else {
@@ -363,7 +382,12 @@
     
     if ([touchedLabel.name isEqual: @"achievementsLabel"]) {
         if ([GKLocalPlayer localPlayer].isAuthenticated && [connectionMGMT checkConnection]) {
+<<<<<<< HEAD
 //            [_achievementsScene queryParseForAchievements];
+=======
+            //Querry Game Center for achievements before showing scene
+            [_achievementsScene queryGameCenterForAchievements];
+>>>>>>> workingbranch
             [self runAction:[SKAction sequence:@[waitDuration, revealAchievementsScene]]];
         } else {
             NSString *achievementMessage = @"A user must be logged in and a network connection must be available to view the achievements. Please log in via Game Center and/or check your internet connection before trying again";
@@ -381,6 +405,7 @@
     [connectionAlert show];
 } //noConnectionAlert close
 
+<<<<<<< HEAD
 //-(void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard{
 //    GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
 //    NSString *leaderboardID = [userDefaults objectForKey:@"leaderboardIdentifier"];
@@ -412,4 +437,6 @@
 //    signInLabel.text = labelString;
 //}
 
+=======
+>>>>>>> workingbranch
 @end

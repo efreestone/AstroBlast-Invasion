@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "GameViewController.h"
-#import <Parse/Parse.h>
 #import <GameKit/GameKit.h>
 
 @interface AppDelegate ()
@@ -19,8 +18,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [Parse setApplicationId:@"FJw8EUkeMQHZpIq6SFEjy194dYl5fxLuUwLyZTHi"
-                  clientKey:@"ROwfakQPjubmciViaIS0Vy33aG4AGm1JFKJUMqYs"];
     // Override point for customization after application launch.
     
     //[self authenticateLocalPlayer];

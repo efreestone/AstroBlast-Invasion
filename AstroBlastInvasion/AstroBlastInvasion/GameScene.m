@@ -143,16 +143,16 @@ static inline CGPoint rwNormalize(CGPoint a) {
         
         connectionMGMT = [[ConnectionManagement alloc] init];
         
-        if ([PFUser currentUser] && [connectionMGMT checkConnection]) {
-            [self queryParseForAchievements];
-            
+        if ([GKLocalPlayer localPlayer].isAuthenticated && [connectionMGMT checkConnection]) {
+            [self queryGameCenterForAchievements];
+        
             //Set keys for achievements
-            flawlessKey = @"flawless";
-            quickDrawKey = @"quickDraw";
-            halfDozenKey = @"halfDozen";
-            aDozenKey = @"aDozen";
-            dozenAndAHalfKey = @"dozenAndAHalf";
-            lateBloomerKey = @"lateBloomer";
+            flawlessKey = @"Flawless_Achievement";
+            quickDrawKey = @"Wheres_The_Fire";
+            halfDozenKey = @"Half_Dozen";
+            aDozenKey = @"One_Dozen";
+            dozenAndAHalfKey = @"Dozen_And_Half";
+            lateBloomerKey = @"Late_Bloomer";
             
             //Set titles
             flawlessTitle = @"Flawless Victory!";
@@ -332,6 +332,7 @@ static inline CGPoint rwNormalize(CGPoint a) {
         [SKAction removeFromParent];
         didGetFlawless = NO;
     }];
+    SKAction *actionMoveDoneShield = [SKAction removeFromParent];
     
     //Create actions for flashing screen
     SKAction *flashDelay = [SKAction waitForDuration:0.025];
@@ -369,11 +370,12 @@ static inline CGPoint rwNormalize(CGPoint a) {
             [self.view presentScene:_gameOverScene transition: revealGameLost];
         }
     }];
-    //Make sure spaceship exists
+    //Make sure spaceship exists and run actions
     if (enemyShipNode != nil) {
         [enemyShipNode runAction:[SKAction sequence:@[actionMove, loseAction, actionMoveDone]]];
         if (shipsSpawned == 5) {
-            [shipShieldNode runAction:[SKAction sequence:@[actionMove, actionMoveDone]]];
+            //Run shield actions with ship node
+            [shipShieldNode runAction:[SKAction sequence:@[actionMove, actionMoveDoneShield]]];
         }
     } else {
         NSLog(@"enemyShipNode NIL!");
@@ -529,11 +531,13 @@ static inline CGPoint rwNormalize(CGPoint a) {
             self.lastUpdateTimeInterval = currentTime;
         }
         
+        //Spawn multiplier asteroid every 5 seconds
         if (asteroidTimeSinceUpdate > 5) {
             asteroidTimeSinceUpdate = 5.0 / 60.0;
             self.asteroidLastSpawnTimeInterval = currentTime;
         }
         
+        //Spawn extra life asteroid every 7 seconds
         if (extraLifeTimeSinceUpdate > 7) {
             extraLifeTimeSinceUpdate = 7.0 / 60.0;
             self.extraLifeLastSpawnTimeInterval = currentTime;
@@ -755,11 +759,13 @@ static inline CGPoint rwNormalize(CGPoint a) {
         NSLog(@"Running total: %d", runningTotal);
         
         //Make sure user is logged in. Moves on to achievements if one is.
-        if (![PFUser currentUser]) {
+        if (![GKLocalPlayer localPlayer].authenticated) {
             //[_gameOverScene noUserAlert];
+            NSLog(@"Current User");
         } else {
             //Check connection before checking achievements
             if ([connectionMGMT checkConnection]) {
+                //Check if achievement were earned and have not already been awarded
                 if (didGetFlawless && !flawlessBOOL) {
                     NSLog(@"Flawless");
                     [_gameOverScene achievementReceived:flawlessKey withTitle:flawlessTitle];
@@ -850,23 +856,46 @@ static inline CGPoint rwNormalize(CGPoint a) {
     [self.scoreLabel setText:[NSString stringWithFormat:@"Score: %04d X%d", currentScore, currentMultiplier]];
 }
 
-//Query parse and get achievements for the user
--(void)queryParseForAchievements {
-    //Query Parse to see if achievements exist for the user
-    PFQuery *achievementQuery = [PFQuery queryWithClassName:@"achievements"];
-    [achievementQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//Query Game Center for achievements for the user
+-(void)queryGameCenterForAchievements {
+    [GKAchievement loadAchievementsWithCompletionHandler: ^(NSArray *scores, NSError *error) {
         if (!error) {
-            NSLog(@"Achievements exist");
-            flawlessBOOL = [object[@"flawless"] boolValue];
-            quickDrawBOOL = [object[@"quickDraw"] boolValue];
-            halfDozenBOOL = [object[@"halfDozen"] boolValue];
-            aDozenBool = [object[@"aDozen"] boolValue];
-            dozenAndAHalfBOOL = [object[@"dozenAndAHalf"] boolValue];
-            lateBloomerBOOL = [object[@"lateBloomer"] boolValue];
-            
-            //NSLog(@"Flawless = %@", flawlessBOOL ? @"Yes" : @"No");
+            NSLog(@"Achievements = %@", scores);
+            for (GKAchievement* achievement in scores) {
+                //Check for each achievement and set bools accordingly
+                //Flawless
+                if ([achievement.identifier isEqualToString:flawlessKey]) {
+                    flawlessBOOL = YES;
+                    //NSLog(@"Flawless Exists");
+                }
+                //Quickdraw
+                if ([achievement.identifier isEqualToString:quickDrawKey]) {
+                    quickDrawBOOL = YES;
+                    //NSLog(@"Quickdraw Exists");
+                }
+                //Half Dozen
+                if ([achievement.identifier isEqualToString:halfDozenKey]) {
+                    halfDozenBOOL = YES;
+                    //NSLog(@"Half Dozen Exists");
+                }
+                //One Dozen
+                if ([achievement.identifier isEqualToString:aDozenKey]) {
+                    aDozenBool = YES;
+                    //NSLog(@"One Dozen Exists");
+                }
+                //Dozen and Half
+                if ([achievement.identifier isEqualToString:dozenAndAHalfKey]) {
+                    dozenAndAHalfBOOL = YES;
+                    //NSLog(@"Dozen and a Half Exists");
+                }
+                //Late Bloomer
+                if ([achievement.identifier isEqualToString:lateBloomerKey]) {
+                    lateBloomerBOOL = YES;
+                    //NSLog(@"Late Bloomer Exists");
+                }
+            }
         } else {
-            NSLog(@"No achievements");
+            NSLog(@"Achievement Error: %@", [error localizedDescription]);
         }
     }];
 }

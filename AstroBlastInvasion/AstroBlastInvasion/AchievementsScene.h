@@ -22,6 +22,6 @@
 @property (weak, nonatomic) GameViewController *gameViewController;
 @property (strong, nonatomic) MainMenuScene *mainMenuScene;
 
--(void)queryParseForAchievements;
+-(void)queryGameCenterForAchievements;
 
 @end

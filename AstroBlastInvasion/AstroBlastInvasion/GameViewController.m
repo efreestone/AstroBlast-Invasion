@@ -9,11 +9,8 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 #import "MainMenuScene.h"
-#import "CustomPFLoginViewController.h"
-#import "CustomPFSignUpViewController.h"
 #import "Reachability.h"
 #import "ConnectionManagement.h"
-//#import <Parse/Parse.h>
 #import <GameKit/GameKit.h>
 
 @implementation GameViewController {
@@ -104,6 +101,7 @@
     };
 }
 
+<<<<<<< HEAD
 ////Check if a user is signed in, present login view if not.
 //-(void)isUserLoggedIn {
 //    //Check if user is already logged
@@ -129,6 +127,8 @@
 //    }
 //}
 
+=======
+>>>>>>> workingbranch
 - (BOOL)shouldAutorotate
 {
     return YES;
@@ -153,6 +153,7 @@
     return YES;
 }
 
+<<<<<<< HEAD
 ////Query parse for achievements. Create default ones if they don't exist
 //-(void)queryParseForAchievements {
 //    //Query Parse to see if achievements exist for the user
@@ -187,6 +188,8 @@
 //    mainMenuScene.achievementsLabel.fontColor = mainMenuScene.iOSBlueButtonColor;
 //}
 
+=======
+>>>>>>> workingbranch
 //Create and show alert view if there is no internet connectivity
 -(void)noConnectionAlert:(NSString *)alertMessage {
     UIAlertView *connectionAlert = [[UIAlertView alloc] initWithTitle:@"No Connection!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -201,6 +204,7 @@
     //Show alert
     [noUserAlert show];
 } //noConnectionAlert close
+<<<<<<< HEAD
 
 //#pragma mark - PFLogin Delegate methods from Parse login tutorial
 //
@@ -298,6 +302,8 @@
 //-(void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
 //    NSLog(@"User dismissed the signUpViewController");
 //}
+=======
+>>>>>>> workingbranch
 
 -(int)incrementTotalDestroyed:(int)totalDestroyed {
     self.totalOfEnemiesDestroyed = self.totalOfEnemiesDestroyed + totalDestroyed;

@@ -22,6 +22,13 @@
     SKLabelNode *dozenAndAHalfLabel;
     SKLabelNode *lateBloomerLabel;
     
+    NSString *flawlessKey;
+    NSString *quickDrawKey;
+    NSString *halfDozenKey;
+    NSString *aDozenKey;
+    NSString *dozenAndAHalfKey;
+    NSString *lateBloomerKey;
+    
     NSString *flawlessTitle;
     NSString *quickDrawTitle;
     NSString *halfDozenTitle;
@@ -57,6 +64,14 @@
         SKSpriteNode *backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"space"];
         backgroundImage.position = CGPointMake(self.size.width / 2, self.size.height / 2);
         [self addChild:backgroundImage];
+        
+        //Set keys for achievements
+        flawlessKey = @"Flawless_Achievement";
+        quickDrawKey = @"Wheres_The_Fire";
+        halfDozenKey = @"Half_Dozen";
+        aDozenKey = @"One_Dozen";
+        dozenAndAHalfKey = @"Dozen_And_Half";
+        lateBloomerKey = @"Late_Bloomer";
         
         //Set titles
         flawlessTitle = @"Flawless Victory!";
@@ -163,26 +178,49 @@
     return self;
 }
 
--(void)queryParseForAchievements {
-    //Query Parse to see if achievements exist for the user
-    PFQuery *achievementQuery = [PFQuery queryWithClassName:@"achievements"];
-    [achievementQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//Query Game Center for achievements for the user
+-(void)queryGameCenterForAchievements {
+    [GKAchievement loadAchievementsWithCompletionHandler: ^(NSArray *scores, NSError *error) {
         if (!error) {
-            NSLog(@"Achievements exist");
-            //NSLog(@"Time created %@", [object valueForKey:@"createdAt"]);
-            flawlessBOOL = [object[@"flawless"] boolValue];
-            quickDrawBOOL = [object[@"quickDraw"] boolValue];
-            halfDozenBOOL = [object[@"halfDozen"] boolValue];
-            aDozenBool = [object[@"aDozen"] boolValue];
-            dozenAndAHalfBOOL = [object[@"dozenAndAHalf"] boolValue];
-            lateBloomerBOOL = [object[@"lateBloomer"] boolValue];
-            
-            [self setLabelColors];
-            
-            NSLog(@"Flawless = %@", flawlessBOOL ? @"Yes" : @"No");
+            NSLog(@"Achievements = %@", scores);
+            for (GKAchievement* achievement in scores) {
+                //Check for each achievement and set bools accordingly
+                //Flawless
+                if ([achievement.identifier isEqualToString:flawlessKey]) {
+                    flawlessBOOL = YES;
+                    //NSLog(@"Flawless Exists");
+                }
+                //Quickdraw
+                if ([achievement.identifier isEqualToString:quickDrawKey]) {
+                    quickDrawBOOL = YES;
+                    //NSLog(@"Quickdraw Exists");
+                }
+                //Half Dozen
+                if ([achievement.identifier isEqualToString:halfDozenKey]) {
+                    halfDozenBOOL = YES;
+                    //NSLog(@"Half Dozen Exists");
+                }
+                //One Dozen
+                if ([achievement.identifier isEqualToString:aDozenKey]) {
+                    aDozenBool = YES;
+                    //NSLog(@"One Dozen Exists");
+                }
+                //Dozen and Half
+                if ([achievement.identifier isEqualToString:dozenAndAHalfKey]) {
+                    dozenAndAHalfBOOL = YES;
+                    //NSLog(@"Dozen and a Half Exists");
+                }
+                //Late Bloomer
+                if ([achievement.identifier isEqualToString:lateBloomerKey]) {
+                    lateBloomerBOOL = YES;
+                    //NSLog(@"Late Bloomer Exists");
+                }
+            }
         } else {
-            NSLog(@"No achievements");
+            NSLog(@"Achievement Error: %@", [error localizedDescription]);
         }
+        //Change label color for achievements completed
+        [self setLabelColors];
     }];
 }
 
