@@ -92,6 +92,10 @@
 		B89E47F11B4F5B3A0067075A /* space~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47D11B4F5B3A0067075A /* space~iphone.png */; };
 		B89E47F21B4F5B3A0067075A /* spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47D21B4F5B3A0067075A /* spaceship.png */; };
 		B89E47F31B4F5B3A0067075A /* spaceship~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47D31B4F5B3A0067075A /* spaceship~ipad.png */; };
+		B8E8873A1B7AB27500219675 /* how-to-4.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E887361B7AB27500219675 /* how-to-4.png */; };
+		B8E8873B1B7AB27500219675 /* how-to-4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E887371B7AB27500219675 /* how-to-4@2x.png */; };
+		B8E8873C1B7AB27500219675 /* how-to-4@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E887381B7AB27500219675 /* how-to-4@2x~ipad.png */; };
+		B8E8873D1B7AB27500219675 /* how-to-4~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E887391B7AB27500219675 /* how-to-4~ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +210,10 @@
 		B89E47D11B4F5B3A0067075A /* space~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "space~iphone.png"; path = "art/space~iphone.png"; sourceTree = "<group>"; };
 		B89E47D21B4F5B3A0067075A /* spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spaceship.png; path = art/spaceship.png; sourceTree = "<group>"; };
 		B89E47D31B4F5B3A0067075A /* spaceship~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spaceship~ipad.png"; path = "art/spaceship~ipad.png"; sourceTree = "<group>"; };
+		B8E887361B7AB27500219675 /* how-to-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-4.png"; path = "art/how-to-4.png"; sourceTree = "<group>"; };
+		B8E887371B7AB27500219675 /* how-to-4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-4@2x.png"; path = "art/how-to-4@2x.png"; sourceTree = "<group>"; };
+		B8E887381B7AB27500219675 /* how-to-4@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-4@2x~ipad.png"; path = "art/how-to-4@2x~ipad.png"; sourceTree = "<group>"; };
+		B8E887391B7AB27500219675 /* how-to-4~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-4~ipad.png"; path = "art/how-to-4~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +401,10 @@
 				B89E47C51B4F5B3A0067075A /* how-to-3@2x.png */,
 				B89E47C61B4F5B3A0067075A /* how-to-3@2x~ipad.png */,
 				B89E47C71B4F5B3A0067075A /* how-to-3~ipad.png */,
+				B8E887361B7AB27500219675 /* how-to-4.png */,
+				B8E887371B7AB27500219675 /* how-to-4@2x.png */,
+				B8E887381B7AB27500219675 /* how-to-4@2x~ipad.png */,
+				B8E887391B7AB27500219675 /* how-to-4~ipad.png */,
 				B89E47C81B4F5B3A0067075A /* laser-ball.png */,
 				B829B4971B7AAC38004B617D /* laser-ball@2x.png */,
 				B89E47C91B4F5B3A0067075A /* laser-ball~ipad.png */,
@@ -514,6 +526,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8E8873C1B7AB27500219675 /* how-to-4@2x~ipad.png in Resources */,
 				B89E47971B4F5A8D0067075A /* explosion.caf in Resources */,
 				B89E47A91B4F5AB80067075A /* Default@2x~ipad.png in Resources */,
 				B89E47DF1B4F5B3A0067075A /* how-to-1~ipad.png in Resources */,
@@ -540,6 +553,7 @@
 				B89E47F11B4F5B3A0067075A /* space~iphone.png in Resources */,
 				B89E47D61B4F5B3A0067075A /* asteroid-X2.png in Resources */,
 				B89E47AF1B4F5AB80067075A /* Icon.png in Resources */,
+				B8E8873D1B7AB27500219675 /* how-to-4~ipad.png in Resources */,
 				B89E47991B4F5A8D0067075A /* life.caf in Resources */,
 				B829B4941B7AAC06004B617D /* asteroid-X2@2x.png in Resources */,
 				B89E47DB1B4F5B3A0067075A /* fighter~ipad.png in Resources */,
@@ -558,6 +572,7 @@
 				B89E47EA1B4F5B3A0067075A /* red-laser.png in Resources */,
 				B89E479B1B4F5A8D0067075A /* miss.caf in Resources */,
 				B829B4981B7AAC38004B617D /* laser-ball@2x.png in Resources */,
+				B8E8873B1B7AB27500219675 /* how-to-4@2x.png in Resources */,
 				B89E47E61B4F5B3A0067075A /* how-to-3@2x~ipad.png in Resources */,
 				B829B49C1B7AAC51004B617D /* spaceship@2x.png in Resources */,
 				B89E47DC1B4F5B3A0067075A /* how-to-1.png in Resources */,
@@ -568,6 +583,7 @@
 				B89E47EF1B4F5B3A0067075A /* space@3x~iphone.png in Resources */,
 				B89E47D51B4F5B3A0067075A /* asteroid-life~ipad.png in Resources */,
 				B89E47E31B4F5B3A0067075A /* how-to-2~ipad.png in Resources */,
+				B8E8873A1B7AB27500219675 /* how-to-4.png in Resources */,
 				B89E47D71B4F5B3A0067075A /* asteroid-X2~ipad.png in Resources */,
 				B89E47AA1B4F5AB80067075A /* Default@2x~iphone.png in Resources */,
 				B89E47E41B4F5B3A0067075A /* how-to-3.png in Resources */,
