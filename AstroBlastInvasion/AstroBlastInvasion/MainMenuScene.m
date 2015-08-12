@@ -129,7 +129,7 @@
         
         //Alloc scenes
         _gameScene = [[GameScene alloc] initWithSize:self.size];
-        _howToScene = [[HowToScene alloc] initWithSize:self.size];
+//        _howToScene = [[HowToScene alloc] initWithSize:self.size];
         _aboutScene = [[AboutScene alloc] initWithSize:self.size];
         _leaderboardScene = [[LeaderboardScene alloc] initWithSize:self.size];
         _achievementsScene = [[AchievementsScene alloc] initWithSize:self.size];
@@ -241,6 +241,7 @@
     
     //How to button label
     if ([touchedLabel.name isEqual: @"howToPlayLabel"]) {
+        _howToScene = [[HowToScene alloc] initWithSize:self.size];
         [self runAction:[SKAction sequence:@[waitDuration, revealHowToScene]]];
         return;
     }

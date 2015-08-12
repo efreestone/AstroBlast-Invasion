@@ -118,15 +118,16 @@
         self.nextLabel.fontColor = iOSBlueButtonColor;
         backgroundNumber++;
         backgroundName = [NSString stringWithFormat:@"how-to-%d", backgroundNumber];
-        if (backgroundNumber <= 4) {
+        if (backgroundNumber <= 5) {
             NSLog(@"Number = %d", backgroundNumber);
             [self.backgroundImage removeFromParent];
             self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:backgroundName];
+//            self.backgroundImage.scene.scaleMode = SKSceneScaleModeAspectFit;
             self.backgroundImage.size = CGSizeMake(self.size.width - backgroundPadding, self.size.height - backgroundPadding);
             self.backgroundImage.position = CGPointMake(self.size.width / 2, self.size.height / 2);
             [self addChild:self.backgroundImage];
             //Change next to play once all three tut images have been displayed
-            if (backgroundNumber == 4) {
+            if (backgroundNumber == 5) {
                 self.nextLabel.name = @"doneLabel";
                 self.nextLabel.text = @"Done";
 //                self.nextLabel.name = @"playLabel";
