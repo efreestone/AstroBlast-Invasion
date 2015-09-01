@@ -161,7 +161,7 @@
         
         //Alloc scenes
         _gameScene = [[GameScene alloc] initWithSize:self.size];
-        _howToScene = [[HowToScene alloc] initWithSize:self.size];
+//        _howToScene = [[HowToScene alloc] initWithSize:self.size];
         _aboutScene = [[AboutScene alloc] initWithSize:self.size];
         _leaderboardScene = [[LeaderboardScene alloc] initWithSize:self.size];
         _achievementsScene = [[AchievementsScene alloc] initWithSize:self.size];
@@ -332,6 +332,7 @@
     
     //How to button label
     if ([touchedLabel.name isEqual: @"howToPlayLabel"]) {
+        _howToScene = [[HowToScene alloc] initWithSize:self.size];
         [self runAction:[SKAction sequence:@[waitDuration, revealHowToScene]]];
         return;
     }
@@ -354,6 +355,7 @@
             //Querry Game Center for leaderboard scores before showing scene
 >>>>>>> workingbranch
             [_leaderboardScene querryGameCenterForLeaderboard];
+            _leaderboardScene.playerAndConnectionExist = YES;
             [self runAction:[SKAction sequence:@[waitDuration, revealLeaderboardScene]]];
         } else {
             self.leaderboardLabel.fontColor = self.iOSBlueButtonColor;
@@ -376,6 +378,7 @@
             
             [self runAction:[SKAction sequence:@[waitDuration, revealLeaderboardScene]]];
             [_leaderboardScene queryUserDefaults];
+            _leaderboardScene.playerAndConnectionExist = NO;
         }
         return;
     }

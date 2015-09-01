@@ -12,11 +12,13 @@
 //
 
 #import "LeaderboardScene.h"
-#include "CustomTableViewCell.h"
+#import "CustomTableViewCell.h"
+#import "ConnectionManagement.h"
 
 @implementation LeaderboardScene {
     SKColor *iOSBlueButtonColor;
     CustomTableViewCell *customCell;
+    ConnectionManagement *connectionMGMT;
     NSMutableArray *allScoresArray;
     NSMutableArray *iPadArray;
     NSMutableArray *iPhoneArray;
@@ -25,6 +27,10 @@
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
+        //init connection manager
+        if (connectionMGMT == nil) {
+            connectionMGMT = [[ConnectionManagement alloc] init];
+        }
         userDefaults = [NSUserDefaults standardUserDefaults];
         //Set background
         SKSpriteNode *backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"space"];
@@ -280,8 +286,9 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GKScore *gkScore = [allScoresArray objectAtIndex:indexPath.row];
+    NSString *scoreUserName, *scoreString;
     
+<<<<<<< HEAD
     NSString *scoreUserName = gkScore.player.alias;
     NSString *scoreString = gkScore.formattedValue;
 <<<<<<< HEAD
@@ -293,6 +300,23 @@
 //    NSString *scoreString = [scoreNumber stringValue];
     //NSString *deviceType = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"deviceType"];
 =======
+>>>>>>> workingbranch
+=======
+    if (self.playerAndConnectionExist) {
+        //Check if Game Center and process accordingly
+//        if ([connectionMGMT checkConnection]) {
+            GKScore *gkScore = [allScoresArray objectAtIndex:indexPath.row];
+            scoreUserName = gkScore.player.alias;
+            scoreString = gkScore.formattedValue;
+//        } else {
+//            [self noConnectionAlert];
+//        }
+    } else {
+        //No Game Center, show local leaderboard only
+        scoreUserName = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"scoreUserName"];
+        NSNumber *scoreNumber = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"newScore"];
+        scoreString = [scoreNumber stringValue];
+    }
 >>>>>>> workingbranch
     
     NSLog(@"User Name = %@", scoreUserName);
@@ -352,5 +376,14 @@
         }];
     }
 }
+
+//Create and show alert view if there is no internet connectivity
+-(void)noConnectionAlert {
+    NSString *alertMessage = @"No network connection is available. Only the local leaderboard will be shown if one is available";
+    UIAlertView *connectionAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                              message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //Show alert
+    [connectionAlert show];
+} //noConnectionAlert close
 
 @end

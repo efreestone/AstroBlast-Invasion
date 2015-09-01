@@ -23,6 +23,7 @@
 @property (strong, nonatomic) SKLabelNode *backLabel;
 @property (strong, nonatomic) UITableView *leaderboardTableView;
 @property (strong, nonatomic) NSArray *scoresArray;
+@property (nonatomic) BOOL playerAndConnectionExist;
 
 @property (strong, nonatomic) SKLabelNode *allLabel;
 @property (strong, nonatomic) SKLabelNode *iPadLabel;
