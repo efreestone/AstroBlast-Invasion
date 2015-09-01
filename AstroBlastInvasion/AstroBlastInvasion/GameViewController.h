@@ -14,6 +14,7 @@
 //-(void)isUserLoggedIn;
 -(void)authGameCenterLocalPlayer;
 -(int)incrementTotalDestroyed:(int)totalDestroyed;
+-(void)checkPlayerAndConnection;
 
 @property (nonatomic) BOOL userSkippedLogin;
 @property (nonatomic) int totalOfEnemiesDestroyed;

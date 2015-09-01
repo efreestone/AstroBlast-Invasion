@@ -54,12 +54,17 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    //Make sure connection exists before allowing user to log in
+    [self checkPlayerAndConnection];
+    
+}
+
+-(void)checkPlayerAndConnection {
+    //Make sure connection exists before checking for user
     if (![connectionMGMT checkConnection]) {
         [self noConnectionAlert:noConnectionMessage];
     } else {
         if (!userSkippedLogin) {
-            //[self isUserLoggedIn];
+            //Authenticate the local player
             [self authGameCenterLocalPlayer];
         }
     }
