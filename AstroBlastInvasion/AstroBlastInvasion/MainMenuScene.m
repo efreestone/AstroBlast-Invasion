@@ -258,6 +258,7 @@
         if ([connectionMGMT checkConnection] && [GKLocalPlayer localPlayer].isAuthenticated) {
             //Querry Game Center for leaderboard scores before showing scene
             [_leaderboardScene querryGameCenterForLeaderboard];
+            _leaderboardScene.playerAndConnectionExist = YES;
             [self runAction:[SKAction sequence:@[waitDuration, revealLeaderboardScene]]];
         } else {
             self.leaderboardLabel.fontColor = self.iOSBlueButtonColor;
@@ -276,6 +277,7 @@
             
             [self runAction:[SKAction sequence:@[waitDuration, revealLeaderboardScene]]];
             [_leaderboardScene queryUserDefaults];
+            _leaderboardScene.playerAndConnectionExist = NO;
         }
         return;
     }
