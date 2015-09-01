@@ -86,13 +86,7 @@
             fontSize = 75;
         }
         
-        self.twitterLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
-        self.twitterLabel.text = @"Post to Twitter";
-        self.twitterLabel.fontColor = iOSBlueButtonColor;
-        self.twitterLabel.fontSize = fontSize;
-        self.twitterLabel.position = CGPointMake(self.size.width / 2, fontSize / 2);
-        [self addChild:self.twitterLabel];
-        
+        //Check if player won and post score
         if (playerWin) {
             //messageString = @"Congratulations, you won!";
             messageString = [NSString stringWithFormat:@"Final Score: %i points", roundedScore];
@@ -106,10 +100,12 @@
             
             //Post score to Game Center
             if ([GKLocalPlayer localPlayer].isAuthenticated) {
-                NSLog(@"Game Center eneabled, posting score to remote");
+                NSLog(@"Game Center enabled, posting score to remote");
+                usernameString = [NSString stringWithFormat:@" Username: %@", [[GKLocalPlayer localPlayer]alias]];
                 [self reportScore:roundedScore];
             } else {
                 NSLog(@"NO Game Center!!");
+                usernameString = @"";
                 [self noUserAlert];
             }
         }
@@ -140,6 +136,14 @@
         self.playAgainLabel.fontSize = fontSize;
         self.playAgainLabel.position = CGPointMake(self.size.width / 2, yPlayAgainLabel);
         [self addChild:self.playAgainLabel];
+        
+        self.twitterLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
+        self.twitterLabel.text = @"Post to Twitter";
+        self.twitterLabel.name = @"shareLabel";
+        self.twitterLabel.fontColor = iOSBlueButtonColor;
+        self.twitterLabel.fontSize = fontSize;
+        self.twitterLabel.position = CGPointMake(self.size.width / 2, fontSize / 2);
+        [self addChild:self.twitterLabel];
         
         //Create actions to wait and go back to Game Scene
         waitDuration = [SKAction waitForDuration:0.05];
@@ -215,12 +219,13 @@
         return;
     }
     //Twitter label
-    if ([touchedLabel.name isEqual: @"twitterLabel"]) {
+    if ([touchedLabel.name isEqual: @"shareLabel"]) {
         NSLog(@"Twitter clicked");
         if ([connectionMGMT checkConnection]) {
-            [self postToTwitter];
+//            [self postToTwitter];
+            [self createActivityViewForShare];
         } else {
-            NSString *alertMessage = @"An internet connection is required to post to Twitter. Please check your connection and try again.";
+            NSString *alertMessage = @"An internet connection is required to share your score. Please check your connection and try again.";
             [self noConnectionAlert:alertMessage];
         }
     }
@@ -244,7 +249,7 @@
 //Post score to twitter
 -(void)postToTwitter {
     //Create string with username and score
-    NSString *tweetString = [NSString stringWithFormat: @"I just got a score of %d in AstroBlaster! Username: %@", roundedScore, usernameString];
+    NSString *tweetString = [NSString stringWithFormat: @"I just got a score of %d in AstroBlaster!%@", roundedScore, usernameString];
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
         SLComposeViewController *tweetSheet = [SLComposeViewController
                                                composeViewControllerForServiceType:SLServiceTypeTwitter];
@@ -253,6 +258,34 @@
     } else {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"There is no twitter account available on your device. Please check your account settings and try again", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
     }
+}
+
+//Create activity view controller to Facebook or Twitter
+-(void)createActivityViewForShare {
+    NSString *text = [NSString stringWithFormat: @"Beat my score of %d in AstroBlast Invasion!%@ http://appstore.com/astroblastinvasion", roundedScore, usernameString];
+    
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:@[text] applicationActivities:nil];
+    
+    //Ignore all share options but facebook and twitter
+    activityController.excludedActivityTypes = @[UIActivityTypePostToWeibo,
+//                                                 UIActivityTypeMessage,
+                                                 UIActivityTypeMail,
+                                                 UIActivityTypePrint,
+                                                 UIActivityTypeCopyToPasteboard,
+                                                 UIActivityTypeAssignToContact,
+                                                 UIActivityTypeSaveToCameraRoll,
+                                                 UIActivityTypeAddToReadingList,
+                                                 UIActivityTypePostToFlickr,
+                                                 UIActivityTypePostToVimeo,
+                                                 UIActivityTypePostToTencentWeibo,
+                                                 UIActivityTypeAirDrop];
+    
+    //Check if responds to popover. This is more specific to iPads running iOS8
+    if ( [activityController respondsToSelector:@selector(popoverPresentationController)] ) {
+        activityController.popoverPresentationController.sourceView = self.view;
+    }
+    //Show share view
+    [_gameViewController presentViewController:activityController animated:YES completion:nil];
 }
 
 //Save scores locally if no user is signed in
