@@ -60,11 +60,11 @@
         achievementsArray = [[NSMutableArray alloc] init];
         achievementKeysArray = [[NSMutableArray alloc] init];
         
-        //Check device
-        deviceType = @"iPad";
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-            deviceType = @"iPhone";
-        }
+//        //Check device
+//        deviceType = @"iPad";
+//        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+//            deviceType = @"iPhone";
+//        }
         
         //Set color similar to the blue of default iOS button
         iOSBlueButtonColor = [SKColor colorWithRed:0 green:0.478431 blue:1.0 alpha:1.0];
@@ -138,7 +138,7 @@
         [self addChild:self.playAgainLabel];
         
         self.twitterLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
-        self.twitterLabel.text = @"Post to Twitter";
+        self.twitterLabel.text = @"Share Your Score";
         self.twitterLabel.name = @"shareLabel";
         self.twitterLabel.fontColor = iOSBlueButtonColor;
         self.twitterLabel.fontSize = fontSize;
@@ -306,7 +306,7 @@
     NSMutableDictionary *newLocalScore = [[NSMutableDictionary alloc] init];
     [newLocalScore setObject:enteredUserName forKey:@"scoreUserName"];
     [newLocalScore setObject:[NSNumber numberWithInt:roundedScore] forKey:@"newScore"];
-    [newLocalScore setObject:deviceType forKey:@"deviceType"];
+//    [newLocalScore setObject:deviceType forKey:@"deviceType"];
 
     [localScoresArray addObject:newLocalScore];
     
