@@ -39,6 +39,7 @@
                 <constraint firstAttribute="trailing" secondItem="aPh-6w-Ouw" secondAttribute="trailing" id="vGq-y7-Dg0"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>

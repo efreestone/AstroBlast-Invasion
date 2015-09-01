@@ -118,20 +118,31 @@
         self.nextLabel.fontColor = iOSBlueButtonColor;
         backgroundNumber++;
         backgroundName = [NSString stringWithFormat:@"how-to-%d", backgroundNumber];
-        if (backgroundNumber <= 3) {
+        if (backgroundNumber <= 5) {
             NSLog(@"Number = %d", backgroundNumber);
             [self.backgroundImage removeFromParent];
             self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:backgroundName];
+//            self.backgroundImage.scene.scaleMode = SKSceneScaleModeAspectFit;
             self.backgroundImage.size = CGSizeMake(self.size.width - backgroundPadding, self.size.height - backgroundPadding);
             self.backgroundImage.position = CGPointMake(self.size.width / 2, self.size.height / 2);
             [self addChild:self.backgroundImage];
             //Change next to play once all three tut images have been displayed
-            if (backgroundNumber == 3) {
-                self.nextLabel.name = @"playLabel";
-                self.nextLabel.text = @"Play";
+            if (backgroundNumber == 5) {
+                self.nextLabel.name = @"doneLabel";
+                self.nextLabel.text = @"Done";
+//                self.nextLabel.name = @"playLabel";
+//                self.nextLabel.text = @"Play";
                 touchedLabel = nil;
             }
         }
+    }
+    
+    if ([touchedLabel.name isEqual: @"doneLabel"]) {
+        self.backLabel.fontColor = iOSBlueButtonColor;
+        //_mainMenuScene = [[MainMenuScene alloc] initWithSize:self.size];
+        _mainMenuScene.gameViewController = _gameViewController;
+        SKTransition *reveal = [SKTransition flipVerticalWithDuration:0.5];
+        [self.view presentScene:_mainMenuScene transition: reveal];
     }
     
     //Play label starts the game and only exists once all 3 tut images have been shown
