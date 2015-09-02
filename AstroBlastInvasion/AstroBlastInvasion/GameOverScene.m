@@ -60,12 +60,6 @@
         achievementsArray = [[NSMutableArray alloc] init];
         achievementKeysArray = [[NSMutableArray alloc] init];
         
-//        //Check device
-//        deviceType = @"iPad";
-//        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-//            deviceType = @"iPhone";
-//        }
-        
         //Set color similar to the blue of default iOS button
         iOSBlueButtonColor = [SKColor colorWithRed:0 green:0.478431 blue:1.0 alpha:1.0];
         
@@ -218,11 +212,11 @@
         [self runAction:[SKAction sequence:@[waitDuration, revealGameScene]]];
         return;
     }
-    //Twitter label
+    //Share label
     if ([touchedLabel.name isEqual: @"shareLabel"]) {
         NSLog(@"Twitter clicked");
         if ([connectionMGMT checkConnection]) {
-//            [self postToTwitter];
+            //Create view activity with Facebook, Twitter, and Message as options if user is logged into them
             [self createActivityViewForShare];
         } else {
             NSString *alertMessage = @"An internet connection is required to share your score. Please check your connection and try again.";
@@ -244,20 +238,6 @@
             NSLog(@"Successfully reported score");
         }
     }];
-}
-
-//Post score to twitter
--(void)postToTwitter {
-    //Create string with username and score
-    NSString *tweetString = [NSString stringWithFormat: @"I just got a score of %d in AstroBlaster!%@", roundedScore, usernameString];
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-        SLComposeViewController *tweetSheet = [SLComposeViewController
-                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:tweetString];
-        [_gameViewController presentViewController:tweetSheet animated:YES completion:nil];
-    } else {
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"There is no twitter account available on your device. Please check your account settings and try again", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    }
 }
 
 //Create activity view controller to Facebook or Twitter
@@ -302,21 +282,26 @@
         localScoresArray = [[NSMutableArray alloc] init];
     }
     
-    //NSDictionary *newLocalScore = [NSDictionary dictionaryWithObjectsAndKeys:keysArray, objectArray, nil];
+    //Create local score dictionary and add to array
     NSMutableDictionary *newLocalScore = [[NSMutableDictionary alloc] init];
     [newLocalScore setObject:enteredUserName forKey:@"scoreUserName"];
     [newLocalScore setObject:[NSNumber numberWithInt:roundedScore] forKey:@"newScore"];
-//    [newLocalScore setObject:deviceType forKey:@"deviceType"];
 
     [localScoresArray addObject:newLocalScore];
     
+    //Archive array of dictionaries and save to user defaults
     NSData *newScoresData = [NSKeyedArchiver archivedDataWithRootObject:localScoresArray];
-    
     [userDefaults setObject:newScoresData forKey:@"localScoresArray"];
     [userDefaults synchronize];
 }
 
 //Create and show alert view if there is no internet connectivity
+-(void)noConnectionAlert:(NSString *)message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection!" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
+//Create and show alert view if there is no user
 -(void)noUserAlert {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No User!"
                                                     message:@"No user is logged in so the score will only be saved locally. Please enter your initials and press save."
@@ -327,11 +312,7 @@
     [alert show];
 }
 
--(void)noConnectionAlert:(NSString *)message {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection!" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
-}
-
+//Grab input for username in no user alert for leaderboard
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     localUserName = [alertView textFieldAtIndex:0].text;
     //NSLog(@"%@", localUserName);
@@ -340,6 +321,7 @@
     }
 }
 
+//
 -(void)achievementReceived:(NSString *)key withTitle:(NSString *)title {
     //Double-check array and title exist for achievement
     if (achievementsArray == nil) {
