@@ -1,14 +1,9 @@
-// Elijah Freestone
-// IAD 1412
-// Week 4
-// December 14th, 2014
-
 //
 //  GameOverScene.m
-//  Project4
+//  AstroBlastInvasion
 //
-//  Created by Elijah Freestone on 12/14/14.
-//  Copyright (c) 2014 Elijah Freestone. All rights reserved.
+//  Created by Elijah Freestone on 7/9/15.
+//  Copyright (c) 2015 Elijah Freestone. All rights reserved.
 //
 
 #import "GameOverScene.h"
@@ -321,7 +316,6 @@
     }
 }
 
-//
 -(void)achievementReceived:(NSString *)key withTitle:(NSString *)title {
     //Double-check array and title exist for achievement
     if (achievementsArray == nil) {
@@ -352,7 +346,6 @@
     self.playAgainLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.7);
     self.twitterLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.55);
     
-    //[self.view addSubview:achievementsTable];
     [achievementsTable reloadData];
     
 }
@@ -364,8 +357,6 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //NSString *achievementTitle = [achievementsArray objectAtIndex:indexPath.row];
-    
     static NSString *cellId = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];

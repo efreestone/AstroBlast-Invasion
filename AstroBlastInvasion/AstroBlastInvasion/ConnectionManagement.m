@@ -1,14 +1,9 @@
-// Elijah Freestone
-// IAD 1412
-// Week 4
-// December 14th, 2014
-
 //
 //  ConnectionManagement.m
-//  Project4
+//  AstroBlastInvasion
 //
-//  Created by Elijah Freestone on 12/14/14.
-//  Copyright (c) 2014 Elijah Freestone. All rights reserved.
+//  Created by Elijah Freestone on 7/9/15.
+//  Copyright (c) 2015 Elijah Freestone. All rights reserved.
 //
 
 #import "ConnectionManagement.h"

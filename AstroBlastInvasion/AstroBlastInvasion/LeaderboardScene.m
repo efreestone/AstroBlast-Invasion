@@ -1,14 +1,9 @@
-// Elijah Freestone
-// IAD 1412
-// Week 4
-// December 14th, 2014
-
 //
 //  LeaderboardScene.m
-//  Project4
+//  AstroBlastInvasion
 //
-//  Created by Elijah Freestone on 12/14/14.
-//  Copyright (c) 2014 Elijah Freestone. All rights reserved.
+//  Created by Elijah Freestone on 7/9/15.
+//  Copyright (c) 2015 Elijah Freestone. All rights reserved.
 //
 
 #import "LeaderboardScene.h"
@@ -100,7 +95,6 @@
     _leaderboardTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0, tableWidth, tableHeight)];
     _leaderboardTableView.center = CGPointMake(screenWidth/2.0f, screenHeight/2.0f + 25.0f);
     _leaderboardTableView.backgroundColor = [UIColor clearColor];
-    //    _leaderboardTableView.separatorInset = UIEdgeInsetsZero;
     _leaderboardTableView.delegate = self;
     _leaderboardTableView.dataSource = self;
     [self.view addSubview:_leaderboardTableView];
@@ -109,19 +103,15 @@
     CGFloat tableThird = tableWidth / 3;
     CGFloat middleOfThird = tableThird / 2;
     CGFloat firstLabelX = middleOfThird - 25.0f;
-//    CGFloat secondLabelX = tableThird + middleOfThird - 20.0f;
     CGFloat thirdLabelX = (tableThird * 2) + middleOfThird - 30.0f;
     //Create header for table view
     UIView *tableHeader = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableWidth, 25.0f)];
     tableHeader.backgroundColor = [UIColor lightGrayColor];
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(firstLabelX, 0.0f, 100.0f, 25.0f)];
     nameLabel.text = @"Username";
-//    UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(secondLabelX, 0.0f, 100.0f, 25.0f)];
-//    numberLabel.text = @"Score";
     UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(thirdLabelX, 0.0f, 100.0f, 25.0f)];
     numberLabel.text = @"Score";
     [tableHeader addSubview:nameLabel];
-//    [tableHeader addSubview:numberLabel];
     [tableHeader addSubview:numberLabel];
     [_leaderboardTableView setTableHeaderView:tableHeader];
     //Stop highlighting of selected rows. Doesn't work from storyboard in this case for some reason
@@ -144,61 +134,6 @@
         [_leaderboardTableView removeFromSuperview];
         return;
     }
-    
-//    //All button
-//    if ([touchedLabel.name isEqual: @"allLabel"]) {
-//        self.allLabel.fontColor = [SKColor grayColor];
-//        //Clear mutable array
-//        [allScoresArray removeAllObjects];
-//        //Toggle other label colors
-//        self.iPadLabel.fontColor = iOSBlueButtonColor;
-//        self.iPhoneLabel.fontColor = iOSBlueButtonColor;
-//        
-//        //Reset all array to original score array and reload
-//        allScoresArray = (NSMutableArray *)self.scoresArray;
-//        [_leaderboardTableView reloadData];
-//        return;
-//    }
-//    
-//    //iPhone button
-//    if ([touchedLabel.name isEqual: @"iPhoneLabel"]) {
-//        self.iPhoneLabel.fontColor = [SKColor grayColor];
-//        //Clear mutable array
-//        [iPhoneArray removeAllObjects];
-//        for (PFObject *object in self.scoresArray) {
-//            if ([[object valueForKey:@"deviceType"] isEqualToString:@"iPhone"]) {
-//                [iPhoneArray addObject:object];
-//            }
-//        }
-//        //Toggle other label colors
-//        self.allLabel.fontColor = iOSBlueButtonColor;
-//        self.iPadLabel.fontColor = iOSBlueButtonColor;
-//        
-//        //Set all array to iphone only array and reload
-//        allScoresArray = iPhoneArray;
-//        [_leaderboardTableView reloadData];
-//        return;
-//    }
-//    
-//    //iPad button
-//    if ([touchedLabel.name isEqual: @"iPadLabel"]) {
-//        self.iPadLabel.fontColor = [SKColor grayColor];
-//        //Clear mutable array
-//        [iPadArray removeAllObjects];
-//        for (PFObject *object in self.scoresArray) {
-//            if ([[object valueForKey:@"deviceType"] isEqualToString:@"iPad"]) {
-//                [iPadArray addObject:object];
-//            }
-//        }
-//        //Toggle other label colors
-//        self.allLabel.fontColor = iOSBlueButtonColor;
-//        self.iPhoneLabel.fontColor = iOSBlueButtonColor;
-//        
-//        //Set all array to iPad only array and reload
-//        allScoresArray = iPadArray;
-//        [_leaderboardTableView reloadData];
-//        return;
-//    }
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -221,24 +156,6 @@
         self.iPhoneLabel.fontColor = iOSBlueButtonColor;
         self.iPadLabel.fontColor = iOSBlueButtonColor;
     }
-    
-//    //All button
-//    if ([touchedLabel.name isEqual: @"allLabel"]) {
-//        //self.allLabel.fontColor = iOSBlueButtonColor;
-//        return;
-//    }
-//    
-//    //iPhone button
-//    if ([touchedLabel.name isEqual: @"iPhoneLabel"]) {
-//        //self.iPhoneLabel.fontColor = iOSBlueButtonColor;
-//        return;
-//    }
-//    
-//    //iPad button
-//    if ([touchedLabel.name isEqual: @"iPadLabel"]) {
-//        //self.iPadLabel.fontColor = iOSBlueButtonColor;
-//        return;
-//    }
 }
 
 #pragma mark - TableView Methods
@@ -251,14 +168,9 @@
     NSString *scoreUserName, *scoreString;
     
     if (self.playerAndConnectionExist) {
-        //Check if Game Center and process accordingly
-//        if ([connectionMGMT checkConnection]) {
-            GKScore *gkScore = [allScoresArray objectAtIndex:indexPath.row];
-            scoreUserName = gkScore.player.alias;
-            scoreString = gkScore.formattedValue;
-//        } else {
-//            [self noConnectionAlert];
-//        }
+        GKScore *gkScore = [allScoresArray objectAtIndex:indexPath.row];
+        scoreUserName = gkScore.player.alias;
+        scoreString = gkScore.formattedValue;
     } else {
         //No Game Center, show local leaderboard only
         scoreUserName = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"scoreUserName"];
@@ -283,7 +195,6 @@
                 customCell.usernameLabel.textColor = [UIColor whiteColor];
                 customCell.scoreLabel.text = scoreString;
                 customCell.scoreLabel.textColor = [UIColor whiteColor];
-                //customCell.deviceLabel.text = deviceType;
                 customCell.deviceLabel.textColor = [UIColor whiteColor];
             }
         }

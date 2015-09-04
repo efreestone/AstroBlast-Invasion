@@ -1,14 +1,9 @@
-// Elijah Freestone
-// IAD 1412
-// Week 4
-// December 14th, 2014
-
 //
 //  AboutScene.m
-//  Project4
+//  AstroBlastInvasion
 //
-//  Created by Elijah Freestone on 12/14/14.
-//  Copyright (c) 2014 Elijah Freestone. All rights reserved.
+//  Created by Elijah Freestone on 7/9/15.
+//  Copyright (c) 2015 Elijah Freestone. All rights reserved.
 //
 
 #import "AboutScene.h"
@@ -53,7 +48,7 @@
         [self addChild:aboutLabelOne];
         
         SKLabelNode *aboutLabelTwo = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
-        aboutLabelTwo.text = @"for Mobile Game Design term 1411,";
+        aboutLabelTwo.text = @"for Mobile Game Design 1411 at Full Sail University,";
         aboutLabelTwo.fontColor = [SKColor whiteColor];
         aboutLabelTwo.fontSize = fontSize;
         aboutLabelTwo.position = CGPointMake(self.size.width / 2, self.size.height * 0.5);

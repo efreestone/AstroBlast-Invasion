@@ -1,14 +1,9 @@
-// Elijah Freestone
-// IAD 1412
-// Week 4
-// December 14th, 2014
-
 //
 //  HowToScene.m
-//  Project4
+//  AstroBlastInvasion
 //
-//  Created by Elijah Freestone on 12/14/14.
-//  Copyright (c) 2014 Elijah Freestone. All rights reserved.
+//  Created by Elijah Freestone on 7/9/15.
+//  Copyright (c) 2015 Elijah Freestone. All rights reserved.
 //
 
 #import "HowToScene.h"
@@ -122,7 +117,6 @@
             NSLog(@"Number = %d", backgroundNumber);
             [self.backgroundImage removeFromParent];
             self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:backgroundName];
-//            self.backgroundImage.scene.scaleMode = SKSceneScaleModeAspectFit;
             self.backgroundImage.size = CGSizeMake(self.size.width - backgroundPadding, self.size.height - backgroundPadding);
             self.backgroundImage.position = CGPointMake(self.size.width / 2, self.size.height / 2);
             [self addChild:self.backgroundImage];
@@ -130,8 +124,6 @@
             if (backgroundNumber == 5) {
                 self.nextLabel.name = @"doneLabel";
                 self.nextLabel.text = @"Done";
-//                self.nextLabel.name = @"playLabel";
-//                self.nextLabel.text = @"Play";
                 touchedLabel = nil;
             }
         }
@@ -139,7 +131,6 @@
     
     if ([touchedLabel.name isEqual: @"doneLabel"]) {
         self.backLabel.fontColor = iOSBlueButtonColor;
-        //_mainMenuScene = [[MainMenuScene alloc] initWithSize:self.size];
         _mainMenuScene.gameViewController = _gameViewController;
         SKTransition *reveal = [SKTransition flipVerticalWithDuration:0.5];
         [self.view presentScene:_mainMenuScene transition: reveal];

@@ -1,14 +1,9 @@
-// Elijah Freestone
-// IAD 1412
-// Week 4
-// December 14th, 2014
-
 //
 //  MainMenuScene.m
-//  Project4
+//  AstroBlastInvasion
 //
-//  Created by Elijah Freestone on 12/14/14.
-//  Copyright (c) 2014 Elijah Freestone. All rights reserved.
+//  Created by Elijah Freestone on 7/9/15.
+//  Copyright (c) 2015 Elijah Freestone. All rights reserved.
 //
 
 #import "MainMenuScene.h"
@@ -145,7 +140,6 @@
             self.playButtonLabel.fontColor = self.iOSBlueButtonColor;
             SKTransition *reveal = [SKTransition doorsOpenVerticalWithDuration:0.5];
             [self.view presentScene:_gameScene transition:reveal];
-            //self.gameViewController.userSkippedLogin = NO;
             _gameScene.gameViewController = _gameViewController;
             _gameScene.mainMenuScene = self;
         }];
@@ -185,6 +179,7 @@
     return self;
 }
 
+//Set color of the achievements label to blue if user is signed in
 -(void)setAchievemetsLabelColor {
     NSLog(@"Main Menu set achievements label color");
     self.achievementsLabel.fontColor = self.iOSBlueButtonColor;

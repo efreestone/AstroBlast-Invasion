@@ -113,11 +113,6 @@
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-//        return UIInterfaceOrientationMaskLandscape;
-//    } else {
-//        return UIInterfaceOrientationMaskLandscape;
-//    }
     return UIInterfaceOrientationMaskLandscape;
 }
 
