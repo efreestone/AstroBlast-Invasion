@@ -132,6 +132,8 @@
         self.backLabel.fontColor = [SKColor grayColor];
         //Remove table view. Removing this causes the table to remain on top of the menu scene
         [_leaderboardTableView removeFromSuperview];
+        //_leaderboardTableView = nil;
+        allScoresArray = nil;
         return;
     }
 }
@@ -151,10 +153,10 @@
         SKTransition *reveal = [SKTransition doorsCloseHorizontalWithDuration:0.5];
         [self.view presentScene:_mainMenuScene transition: reveal];
         
-        //Toggle other buttons color
-        self.allLabel.fontColor = [SKColor grayColor];
-        self.iPhoneLabel.fontColor = iOSBlueButtonColor;
-        self.iPadLabel.fontColor = iOSBlueButtonColor;
+//        //Toggle other buttons color
+//        self.allLabel.fontColor = [SKColor grayColor];
+//        self.iPhoneLabel.fontColor = iOSBlueButtonColor;
+//        self.iPadLabel.fontColor = iOSBlueButtonColor;
     }
 }
 
