@@ -118,6 +118,7 @@
         titleLabel.text = @"Achievements (touch for description)";
         titleLabel.fontColor = [SKColor whiteColor];
         titleLabel.fontSize = fontSize * 0.5;
+        titleLabel.zPosition = 3;
         float titleLabelHeightPlus = titleLabel.frame.size.height + fontSize / 5;
         titleLabel.position = CGPointMake(self.size.width / 2, self.size.height - titleLabelHeightPlus);
         [self addChild:titleLabel];
@@ -127,6 +128,7 @@
         flawlessLabel.name = @"flawlessLabel";
         flawlessLabel.fontColor = flawlessColor;
         flawlessLabel.fontSize = fontSize;
+        flawlessLabel.zPosition = 3;
         flawlessLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.8);
         [self addChild:flawlessLabel];
         
@@ -135,6 +137,7 @@
         quickDrawLabel.name = @"quickDrawLabel";
         quickDrawLabel.fontColor = quickDrawColor;
         quickDrawLabel.fontSize = fontSize;
+        quickDrawLabel.zPosition = 3;
         quickDrawLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.65);
         [self addChild:quickDrawLabel];
         
@@ -143,6 +146,7 @@
         halfDozenLabel.name = @"halfDozenLabel";
         halfDozenLabel.fontColor = halfDozenColor;
         halfDozenLabel.fontSize = fontSize;
+        halfDozenLabel.zPosition = 3;
         halfDozenLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.5);
         [self addChild:halfDozenLabel];
         
@@ -151,6 +155,7 @@
         aDozenLabel.name = @"aDozenLabel";
         aDozenLabel.fontColor = aDozenColor;
         aDozenLabel.fontSize = fontSize;
+        aDozenLabel.zPosition = 3;
         aDozenLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.35);
         [self addChild:aDozenLabel];
         
@@ -159,6 +164,7 @@
         dozenAndAHalfLabel.name = @"dozenAndAHalfLabel";
         dozenAndAHalfLabel.fontColor = dozenAndAHalfColor;
         dozenAndAHalfLabel.fontSize = fontSize;
+        dozenAndAHalfLabel.zPosition = 3;
         dozenAndAHalfLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.2);
         [self addChild:dozenAndAHalfLabel];
         
@@ -167,6 +173,7 @@
         lateBloomerLabel.name = @"lateBloomerLabel";
         lateBloomerLabel.fontColor = lateBloomerColor;
         lateBloomerLabel.fontSize = fontSize;
+        lateBloomerLabel.zPosition = 3;
         lateBloomerLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.05);
         [self addChild:lateBloomerLabel];
     }

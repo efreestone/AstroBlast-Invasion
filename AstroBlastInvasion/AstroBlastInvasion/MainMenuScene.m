@@ -72,6 +72,7 @@
         titleLabel.text = @"AstroBlast Invasion";
         titleLabel.fontColor = [SKColor whiteColor];
         titleLabel.fontSize = fontSize * 0.75;
+        titleLabel.zPosition = 3;
         float titleLabelHeightPlus = titleLabel.frame.size.height + fontSize / 2;
         titleLabel.position = CGPointMake(self.size.width / 2, self.size.height - titleLabelHeightPlus);
         [self addChild:titleLabel];
@@ -82,6 +83,8 @@
         self.playButtonLabel.name = @"playButtonLabel";
         self.playButtonLabel.fontColor = self.iOSBlueButtonColor;
         self.playButtonLabel.fontSize = fontSize;
+        self.playButtonLabel.zPosition = 3;
+        
         self.playButtonLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.7);
         [self addChild:self.playButtonLabel];
         
@@ -91,6 +94,7 @@
         self.howToPlayLabel.name = @"howToPlayLabel";
         self.howToPlayLabel.fontColor = self.iOSBlueButtonColor;
         self.howToPlayLabel.fontSize = fontSize;
+        self.howToPlayLabel.zPosition = 3;
         self.howToPlayLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.55);
         [self addChild:self.howToPlayLabel];
         
@@ -100,6 +104,7 @@
         self.aboutLabel.name = @"aboutLabel";
         self.aboutLabel.fontColor = self.iOSBlueButtonColor;
         self.aboutLabel.fontSize = fontSize;
+        self.aboutLabel.zPosition = 3;
         self.aboutLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.4);
         [self addChild:self.aboutLabel];
         
@@ -109,6 +114,7 @@
         self.leaderboardLabel.name = @"leaderboardLabel";
         self.leaderboardLabel.fontColor = self.iOSBlueButtonColor;
         self.leaderboardLabel.fontSize = fontSize;
+        self.leaderboardLabel.zPosition = 3;
         self.leaderboardLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.25);
         [self addChild:self.leaderboardLabel];
         
@@ -117,8 +123,8 @@
         self.achievementsLabel.text = @"Achievements";
         self.achievementsLabel.name = @"achievementsLabel";
         self.achievementsLabel.fontColor = [SKColor darkGrayColor];
-        
         self.achievementsLabel.fontSize = fontSize;
+        self.achievementsLabel.zPosition = 3;
         self.achievementsLabel.position = CGPointMake(self.size.width / 2, self.size.height * 0.1);
         [self addChild:self.achievementsLabel];
         
@@ -190,6 +196,7 @@
     CGPoint location = [touch locationInNode:self];
     //Check if touch point is Try Again label
     SKNode *touchedLabel = [self nodeAtPoint:location];
+    touchedLabel.zPosition = 1;
     
     //Play button label
     if ([touchedLabel.name isEqual: @"playButtonLabel"]) {
@@ -227,6 +234,7 @@
     CGPoint location = [touch locationInNode:self];
     //Check if touch point is Try Again label
     SKNode *touchedLabel = [self nodeAtPoint:location];
+    touchedLabel.zPosition = 1;
     
     //Play button label
     if ([touchedLabel.name isEqual: @"playButtonLabel"]) {

@@ -51,6 +51,7 @@
         self.backLabel.name = @"backLabel";
         self.backLabel.fontColor = iOSBlueButtonColor;
         self.backLabel.fontSize = fontSize;
+        self.backLabel.zPosition = 3;
         float backLabelPlacement = self.backLabel.frame.size.height + fontSize;
         self.backLabel.position = CGPointMake(backLabelPlacement, self.size.height - (fontSize * 1.25));
         [self addChild:self.backLabel];
@@ -182,7 +183,9 @@
     
     NSLog(@"User Name = %@", scoreUserName);
     
-    customCell = [tableView dequeueReusableCellWithIdentifier:nil];
+//    customCell = [tableView dequeueReusableCellWithIdentifier:nil];
+    NSString *cellName = @"cell";
+    customCell = [tableView dequeueReusableCellWithIdentifier:cellName];
     tableView.rowHeight = 44;
     
     if (customCell == nil) {

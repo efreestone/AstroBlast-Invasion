@@ -193,6 +193,7 @@ static inline CGPoint rwNormalize(CGPoint a) {
         //Add the fighter sprite to the scene w/ postion based on width of fighter and height of frame
         self.playerFighterJet = [SKSpriteNode spriteNodeWithImageNamed:@"fighter"];
         self.playerFighterJet.position = CGPointMake(self.playerFighterJet.size.width * 0.75, screenHeight / 2);
+        self.playerFighterJet.zPosition = 3;
         [self addChild:self.playerFighterJet];
         
         //Set up physics world with zero gravity
@@ -213,6 +214,7 @@ static inline CGPoint rwNormalize(CGPoint a) {
         self.scoreLabel.text = [NSString stringWithFormat:@"Score: %04d X%d", currentScore, currentMultiplier];
         self.scoreLabel.fontColor = [SKColor whiteColor];
         self.scoreLabel.fontSize = fontSize;
+        self.scoreLabel.zPosition = 3;
         self.scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
         float scoreLabelWidthPlus = self.scoreLabel.frame.size.width + fontSize;
         self.scoreLabel.position = CGPointMake(screenWidth - scoreLabelWidthPlus, screenHeight - labelGapFromFont);
@@ -223,6 +225,7 @@ static inline CGPoint rwNormalize(CGPoint a) {
         self.livesLabel.text = [NSString stringWithFormat:@"Lives: %d", playerLives];
         self.livesLabel.fontColor = [SKColor whiteColor];
         self.livesLabel.fontSize = fontSize;
+        self.livesLabel.zPosition = 3;
         self.livesLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
         float livesLabelWidthHalf = self.livesLabel.frame.size.width / 2;
         self.livesLabel.position = CGPointMake((screenWidth / 2) - livesLabelWidthHalf, screenHeight - labelGapFromFont);

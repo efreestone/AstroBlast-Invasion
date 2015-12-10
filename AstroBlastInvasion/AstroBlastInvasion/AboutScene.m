@@ -35,6 +35,7 @@
         self.backLabel.name = @"backLabel";
         self.backLabel.fontColor = iOSBlueButtonColor;
         self.backLabel.fontSize = fontSize;
+        self.backLabel.zPosition = 3;
         float backLabelPlacement = self.backLabel.frame.size.height + fontSize;
         self.backLabel.position = CGPointMake(backLabelPlacement, self.size.height - (fontSize * 1.25));
         [self addChild:self.backLabel];
@@ -44,6 +45,7 @@
         aboutLabelOne.text = @"AstroBlaster is a project by Elijah Freestone";
         aboutLabelOne.fontColor = [SKColor whiteColor];
         aboutLabelOne.fontSize = fontSize;
+        aboutLabelOne.zPosition = 3;
         aboutLabelOne.position = CGPointMake(self.size.width / 2, self.size.height * 0.6);
         [self addChild:aboutLabelOne];
         
@@ -51,6 +53,7 @@
         aboutLabelTwo.text = @"for Mobile Game Design 1411 at Full Sail University,";
         aboutLabelTwo.fontColor = [SKColor whiteColor];
         aboutLabelTwo.fontSize = fontSize;
+        aboutLabelTwo.zPosition = 3;
         aboutLabelTwo.position = CGPointMake(self.size.width / 2, self.size.height * 0.5);
         [self addChild:aboutLabelTwo];
         

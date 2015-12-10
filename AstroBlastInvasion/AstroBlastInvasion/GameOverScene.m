@@ -112,6 +112,7 @@
         messageLabel.text = messageString;
         messageLabel.fontColor = [SKColor whiteColor];
         messageLabel.fontSize = fontSize;
+        messageLabel.zPosition = 3;
         messageLabel.position = CGPointMake(self.size.width / 2, yMessageLabel);
         [self addChild:messageLabel];
         
@@ -131,6 +132,7 @@
         self.twitterLabel.name = @"shareLabel";
         self.twitterLabel.fontColor = iOSBlueButtonColor;
         self.twitterLabel.fontSize = fontSize;
+        self.twitterLabel.zPosition = 3;
         self.twitterLabel.position = CGPointMake(self.size.width / 2, fontSize / 2);
         [self addChild:self.twitterLabel];
         
