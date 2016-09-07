@@ -45,6 +45,11 @@
         iPhoneArray = [[NSMutableArray alloc] init];
         iPadArray = [[NSMutableArray alloc] init];
         
+<<<<<<< HEAD
+//        CGFloat deviceWidth = self.size.width;
+        
+=======
+>>>>>>> workingbranch
         //Create and set message label
         self.backLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
         self.backLabel.text = @"Menu";
@@ -55,6 +60,39 @@
         float backLabelPlacement = self.backLabel.frame.size.height + fontSize;
         self.backLabel.position = CGPointMake(backLabelPlacement, self.size.height - (fontSize * 1.25));
         [self addChild:self.backLabel];
+<<<<<<< HEAD
+        
+//        //Create and set all label
+//        self.allLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
+//        self.allLabel.text = @"All Scores";
+//        self.allLabel.name = @"allLabel";
+//        self.allLabel.fontColor = [SKColor grayColor];
+//        self.allLabel.fontSize = fontSize;
+//        float allLabelPlacement = deviceWidth * 0.25f;
+//        self.allLabel.position = CGPointMake(allLabelPlacement, self.size.height - (fontSize * 1.25));
+//        [self addChild:self.allLabel];
+//        
+//        //Create and set iPone label
+//        self.iPhoneLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
+//        self.iPhoneLabel.text = @"iPhone Only";
+//        self.iPhoneLabel.name = @"iPhoneLabel";
+//        self.iPhoneLabel.fontColor = iOSBlueButtonColor;
+//        self.iPhoneLabel.fontSize = fontSize;
+//        float iPhoneLabelPlacement = deviceWidth * 0.5f;
+//        self.iPhoneLabel.position = CGPointMake(iPhoneLabelPlacement, self.size.height - (fontSize * 1.25));
+//        [self addChild:self.iPhoneLabel];
+//        
+//        //Create and set iPad label
+//        self.iPadLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue Bold"];
+//        self.iPadLabel.text = @"iPad Only";
+//        self.iPadLabel.name = @"iPadLabel";
+//        self.iPadLabel.fontColor = iOSBlueButtonColor;
+//        self.iPadLabel.fontSize = fontSize;
+//        float iPadLabelPlacement = deviceWidth * 0.75f;
+//        self.iPadLabel.position = CGPointMake(iPadLabelPlacement, self.size.height - (fontSize * 1.25));
+//        [self addChild:self.iPadLabel];
+=======
+>>>>>>> workingbranch
     }
     return self;
 }
@@ -170,6 +208,20 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *scoreUserName, *scoreString;
     
+<<<<<<< HEAD
+    NSString *scoreUserName = gkScore.player.alias;
+    NSString *scoreString = gkScore.formattedValue;
+<<<<<<< HEAD
+    
+    NSLog(@"User Name = %@", scoreUserName);
+    
+//    NSString *scoreUserName = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"alias"];
+//    NSNumber *scoreNumber = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"formattedValue"];
+//    NSString *scoreString = [scoreNumber stringValue];
+    //NSString *deviceType = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"deviceType"];
+=======
+>>>>>>> workingbranch
+=======
     if (self.playerAndConnectionExist) {
         GKScore *gkScore = [allScoresArray objectAtIndex:indexPath.row];
         scoreUserName = gkScore.player.alias;
@@ -180,6 +232,7 @@
         NSNumber *scoreNumber = [[allScoresArray objectAtIndex:indexPath.row] objectForKey:@"newScore"];
         scoreString = [scoreNumber stringValue];
     }
+>>>>>>> workingbranch
     
     NSLog(@"User Name = %@", scoreUserName);
     
@@ -207,12 +260,18 @@
     return customCell;
 }
 
+<<<<<<< HEAD
+=======
 //Querry Game Center for leaderboard
+>>>>>>> workingbranch
 -(void)querryGameCenterForLeaderboard {
     NSString *leaderboardID = [userDefaults objectForKey:@"leaderboardIdentifier"];
     GKLeaderboard *leaderboardRequest = [[GKLeaderboard alloc] init];
     
+<<<<<<< HEAD
+=======
     //Make sure leaderboard exists before requesting scores and loading
+>>>>>>> workingbranch
     if (leaderboardRequest != nil) {
         leaderboardRequest.identifier = leaderboardID;
         leaderboardRequest.playerScope = GKLeaderboardPlayerScopeGlobal;
@@ -221,6 +280,10 @@
         [leaderboardRequest loadScoresWithCompletionHandler: ^(NSArray *scores, NSError *error) {
             if (!error) {
                 //NSLog(@"Scores = %@", scores);
+<<<<<<< HEAD
+                
+=======
+>>>>>>> workingbranch
                 allScoresArray = (NSMutableArray*) scores;
                 [_leaderboardTableView reloadData];
             } else {
