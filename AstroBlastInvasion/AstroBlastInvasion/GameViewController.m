@@ -62,12 +62,12 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     NSString *fromString = @"view did appear";
-    [self checkPlayerAndConnection]; //:fromString
+    [self checkPlayerAndConnection:fromString];
     NSLog(@"viewDidAppear:(BOOL)animated");
 }
 
--(void)checkPlayerAndConnection { //:(NSString *)from
-    NSLog(@"checkPlayerAndConnection from"); //%@", from
+-(void)checkPlayerAndConnection:(NSString *)from {
+    NSLog(@"checkPlayerAndConnection from %@", from);
     if (noConnectionMessage.length == 0) {
         noConnectionMessage = @"Message empty";
     }
