@@ -15,6 +15,7 @@
 		B829B4981B7AAC38004B617D /* laser-ball@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B829B4971B7AAC38004B617D /* laser-ball@2x.png */; };
 		B829B49A1B7AAC42004B617D /* shield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B829B4991B7AAC42004B617D /* shield@2x.png */; };
 		B829B49C1B7AAC51004B617D /* spaceship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B829B49B1B7AAC51004B617D /* spaceship@2x.png */; };
+		B82EC3281E1F5FE400761494 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82EC3271E1F5FE400761494 /* GameKit.framework */; };
 		B84713141B7AEAE300ABB32A /* how-to-5.png in Resources */ = {isa = PBXBuildFile; fileRef = B84713101B7AEAE300ABB32A /* how-to-5.png */; };
 		B84713151B7AEAE300ABB32A /* how-to-5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B84713111B7AEAE300ABB32A /* how-to-5@2x.png */; };
 		B84713161B7AEAE300ABB32A /* how-to-5@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B84713121B7AEAE300ABB32A /* how-to-5@2x~ipad.png */; };
@@ -96,7 +97,6 @@
 		B89E47F21B4F5B3A0067075A /* spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47D21B4F5B3A0067075A /* spaceship.png */; };
 		B89E47F31B4F5B3A0067075A /* spaceship~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89E47D31B4F5B3A0067075A /* spaceship~ipad.png */; };
 		B89F3A531B8F9B8800F5C061 /* spaceship@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B89F3A521B8F9B8800F5C061 /* spaceship@2x~ipad.png */; };
-		B8D357901B9A46D40033B60B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D3578F1B9A46D40033B60B /* GameKit.framework */; };
 		B8E8873A1B7AB27500219675 /* how-to-4.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E887361B7AB27500219675 /* how-to-4.png */; };
 		B8E8873B1B7AB27500219675 /* how-to-4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E887371B7AB27500219675 /* how-to-4@2x.png */; };
 		B8E8873C1B7AB27500219675 /* how-to-4@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E887381B7AB27500219675 /* how-to-4@2x~ipad.png */; };
@@ -122,6 +122,7 @@
 		B829B4971B7AAC38004B617D /* laser-ball@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "laser-ball@2x.png"; path = "art/laser-ball@2x.png"; sourceTree = "<group>"; };
 		B829B4991B7AAC42004B617D /* shield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shield@2x.png"; path = "art/shield@2x.png"; sourceTree = "<group>"; };
 		B829B49B1B7AAC51004B617D /* spaceship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spaceship@2x.png"; path = "art/spaceship@2x.png"; sourceTree = "<group>"; };
+		B82EC3271E1F5FE400761494 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		B84713101B7AEAE300ABB32A /* how-to-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-5.png"; path = "art/how-to-5.png"; sourceTree = "<group>"; };
 		B84713111B7AEAE300ABB32A /* how-to-5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-5@2x.png"; path = "art/how-to-5@2x.png"; sourceTree = "<group>"; };
 		B84713121B7AEAE300ABB32A /* how-to-5@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-5@2x~ipad.png"; path = "art/how-to-5@2x~ipad.png"; sourceTree = "<group>"; };
@@ -219,7 +220,6 @@
 		B89E47D21B4F5B3A0067075A /* spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spaceship.png; path = art/spaceship.png; sourceTree = "<group>"; };
 		B89E47D31B4F5B3A0067075A /* spaceship~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spaceship~ipad.png"; path = "art/spaceship~ipad.png"; sourceTree = "<group>"; };
 		B89F3A521B8F9B8800F5C061 /* spaceship@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spaceship@2x~ipad.png"; path = "art/spaceship@2x~ipad.png"; sourceTree = "<group>"; };
-		B8D3578F1B9A46D40033B60B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		B8E887361B7AB27500219675 /* how-to-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-4.png"; path = "art/how-to-4.png"; sourceTree = "<group>"; };
 		B8E887371B7AB27500219675 /* how-to-4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-4@2x.png"; path = "art/how-to-4@2x.png"; sourceTree = "<group>"; };
 		B8E887381B7AB27500219675 /* how-to-4@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "how-to-4@2x~ipad.png"; path = "art/how-to-4@2x~ipad.png"; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8D357901B9A46D40033B60B /* GameKit.framework in Frameworks */,
+				B82EC3281E1F5FE400761494 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +245,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B82EC3261E1F5FE400761494 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B82EC3271E1F5FE400761494 /* GameKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B876647C1B911374004D1DD1 /* Asteroids */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,10 +333,10 @@
 		B89E47081B4F53810067075A = {
 			isa = PBXGroup;
 			children = (
-				B8D3578F1B9A46D40033B60B /* GameKit.framework */,
 				B89E47131B4F53810067075A /* AstroBlastInvasion */,
 				B89E47321B4F53810067075A /* AstroBlastInvasionTests */,
 				B89E47121B4F53810067075A /* Products */,
+				B82EC3261E1F5FE400761494 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -547,6 +555,7 @@
 					B89E47101B4F53810067075A = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 58QEPHRML8;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -826,6 +835,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 58QEPHRML8;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = AstroBlastInvasion/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -842,6 +852,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 58QEPHRML8;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = AstroBlastInvasion/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

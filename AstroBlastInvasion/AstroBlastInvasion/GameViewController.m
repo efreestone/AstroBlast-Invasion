@@ -51,16 +51,29 @@
         // Present the scene.
         [skView presentScene:mainMenuScene];
     }
+    //[self checkPlayerAndConnection];
+    NSLog(@"viewWillLayoutSubviews");
+}
+
+-(void)viewDidLoad {
+    //[self checkPlayerAndConnection];
+    NSLog(@"viewDidLoad");
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    [self checkPlayerAndConnection];
-    
+    NSString *fromString = @"view did appear";
+    [self checkPlayerAndConnection]; //:fromString
+    NSLog(@"viewDidAppear:(BOOL)animated");
 }
 
--(void)checkPlayerAndConnection {
+-(void)checkPlayerAndConnection { //:(NSString *)from
+    NSLog(@"checkPlayerAndConnection from"); //%@", from
+    if (noConnectionMessage.length == 0) {
+        noConnectionMessage = @"Message empty";
+    }
+    
     //Make sure connection exists before checking for user
-    if (![connectionMGMT checkConnection]) {
+    if (!connectionExists) {
         [self noConnectionAlert:noConnectionMessage];
     } else {
         if (!userSkippedLogin) {
@@ -128,7 +141,13 @@
 
 //Create and show alert view if there is no internet connectivity
 -(void)noConnectionAlert:(NSString *)alertMessage {
+    //NSLog(@"Alert message = %@", alertMessage);
     UIAlertView *connectionAlert = [[UIAlertView alloc] initWithTitle:@"No Connection!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+    if (alertMessage.length == 0) {
+        noConnectionMessage = @"Message empty in alert create";
+    }
+    
     //Show alert
     [connectionAlert show];
 } //noConnectionAlert close
@@ -139,7 +158,7 @@
     UIAlertView *noUserAlert = [[UIAlertView alloc] initWithTitle:@"Game Center Cancelled!" message:noUserMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     //Show alert
     [noUserAlert show];
-} //noConnectionAlert close
+} //noGameCenterUserAlert close
 
 -(int)incrementTotalDestroyed:(int)totalDestroyed {
     self.totalOfEnemiesDestroyed = self.totalOfEnemiesDestroyed + totalDestroyed;
