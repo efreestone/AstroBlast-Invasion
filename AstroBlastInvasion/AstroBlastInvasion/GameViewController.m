@@ -51,19 +51,11 @@
         // Present the scene.
         [skView presentScene:mainMenuScene];
     }
-    //[self checkPlayerAndConnection];
-    NSLog(@"viewWillLayoutSubviews");
-}
-
--(void)viewDidLoad {
-    //[self checkPlayerAndConnection];
-    NSLog(@"viewDidLoad");
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     NSString *fromString = @"view did appear";
     [self checkPlayerAndConnection:fromString];
-    NSLog(@"viewDidAppear:(BOOL)animated");
 }
 
 -(void)checkPlayerAndConnection:(NSString *)from {
